@@ -28,11 +28,11 @@ class SimblogListView(LoginRequiredMixin, ListView):
         return context
 
 
-# class BeaconDetailView(LoginRequiredMixin, BreadcrumbMixin, DetailView):
-#     def get_context_data(self, **kwargs):
-#         context = super(BeaconDetailView, self).get_context_data(**kwargs)
-#         context['page_name'] = (self.model._meta.verbose_name, self.object)
-#         return context
+class SimblogDetailView(LoginRequiredMixin, DetailView):
+    def get_context_data(self, **kwargs):
+        context = super(SimblogDetailView, self).get_context_data(**kwargs)
+        context['page_name'] = (self.model._meta.verbose_name, self.object)
+        return context
 
 
 # class BeaconCreateView(LoginRequiredMixin, BreadcrumbMixin, SuccessMessageMixin, CreateView):
