@@ -1,0 +1,106 @@
+{% load staticfiles %}
+            <div class="blog-sidebar">
+                <div class="widget container">
+                    <h4>Looking for something?</h4>
+                    <p>
+                        An input field you can connect to your needs and use as a search field.
+                    </p>
+                    <input class="blog-search" type="text" value="Search here...">
+                </div>
+                <div class="widget container">
+                    <h4>文章分类</h4>
+                    <div class="decoration"></div>
+<!--                     <p>
+                        Your categories styled up to look nice and clean!
+                    </p> -->
+                    {% load simfilter %}
+                    {% if categories %}
+                    <div class="one-half">
+                        <ul class="blog-category">
+                            {% for category in categories|Category_LR:'left_value' %}
+                            <li><a href="#"><i class="fa fa-angle-right"></i>{{ category|upper }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="one-half last-column">
+                        <ul class="blog-category">
+                            {% for category in categories|Category_LR:'right_value' %}
+                            <li><a href="#"><i class="fa fa-angle-right"></i>{{ category|capfirst }} </a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    {% else %}
+                        <li>No category yet.</li>
+                    {% endif %}
+                </div>
+                
+                <div class="widget container hide-if-mobile">
+                    <h4>最新文章</h4>
+                    <div class="decoration"></div>
+                    <ul class="normal-list">
+                        <li><a href="#" style="color:inherit">111111tttttt13nhtyu722222222287833111111</a></li>
+                        <li><a href="#" style="color:inherit">11345234234234wwwwwwwwwww13413111111</a></li>
+                        <li><a href="#" style="color:inherit">11111113adhnwewwwwwwwwrtw111111</a></li>
+                        <li><a href="#" style="color:inherit">111112222222yowertjwoerktwertjoijoi11111</a></li>
+                        <li><a href="#" style="color:inherit">111122222211234123412tttttttt787111111</a></li>
+                    </ul>
+                        <li>No category yet.</li>
+                </div>
+                
+                <div class="widget container hide-if-mobile">
+                    <h4>热门标签</h4>
+                    <div class="decoration"></div>
+                        <ul class="tag-clouds">
+                            <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> Facebook </a>
+                            <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> Twitter </a>
+                            <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> Spinner </a>
+                            <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> Phone </a>
+                            <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> Tablet </a>
+                            <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> Python </a>
+                            <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> Django </a>
+                            <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> Music </a>
+                            <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> Linux </a>
+                        </ul>
+                </div>
+                
+                
+                
+<!--                 <div class="widget container">
+                    <h4>Recent Works</h4>
+                    <div class="decoration"></div>
+                    <p>
+                        You can link this to be a gallery or link it to act like a normal anchor
+                        to redirect your users to the specific post you want. 
+                    </p>
+                    <ul class="gallery square-thumb blog-gallery">
+                        <li><a href="#"><img src="{% static 'blog/img/pictures/1s.jpg' %}" alt="img"/></a></li>
+                        <li><a href="#"><img src="{% static 'blog/img/pictures/2s.jpg' %}" alt="img"/></a></li>
+                        <li><a href="#"><img src="{% static 'blog/img/pictures/3s.jpg' %}" alt="img"/></a></li>
+                        <li><a href="#"><img src="{% static 'blog/img/pictures/4s.jpg' %}" alt="img"/></a></li>
+                    </ul>
+                </div> -->
+                
+                <!-- iOS Styled Toggles -->
+<!--                 <div class="widget container">
+                    <div class="container switch-box">
+                        <h4>iOS Style 1</h4>
+                        <a href="#" class="switch switch-1 switch-1-on">
+                            <em>I</em>
+                            <span></span>
+                            <em>0</em>
+                        </a>
+                        <em class="switch-box-subtitle">
+                            Optional subtitle can be added here, this message automatically hides when the content is shown!
+                        </em>
+                        <div class="switch-box-content">
+                            <p class="no-bottom">
+                                Switches can be used as content toggles, where you can add almost every feature from the page inside of them.
+                                We also provided the styles, so if you want you can even convert these to checkboxes. By default, they function
+                                as content toggles! An extra style for your device!
+                            </p>
+                        </div>
+                    </div>
+                </div> -->
+                
+            </div>
