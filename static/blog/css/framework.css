@@ -190,7 +190,7 @@ td {
 	padding-bottom: 9px;
 	line-height: 18px;
 	vertical-align: middle;
-	background-color: #fdfdfd;
+	background-color: #FFFFFF;
 }
 
 tr:hover > td {
@@ -243,7 +243,7 @@ ol > li:last-child, ul > li:last-child {
 /*//////////////////////////////////////*/
 
 body{
-	font-family:'Roboto', sans-serif;
+	font-family:'Roboto', Lato, "Microsoft YaHei", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	color:#666;
 	font-size:12px;
@@ -961,7 +961,8 @@ table {
 }
 
 table th {
-	padding:21px 25px 22px 25px;
+	/* padding:21px 25px 22px 25px; */
+	padding:11px 15px 12px 15px;
 	border-bottom:1px solid #e0e0e0;
 }
 
@@ -976,13 +977,13 @@ table tr{
 }
 
 table tr td:first-child{
-	text-align: left;
-	padding-left:20px;
+	text-align: center;
+	/* padding-left:20px; */
 	border-left: 0;
 }
 
 table tr td {
-	padding:14px;
+	padding:10px;
 	border-top: 1px solid #ffffff;
 	border-bottom:1px solid #e0e0e0;
 	border-left: 0px solid #e0e0e0;
