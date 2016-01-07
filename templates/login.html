@@ -18,8 +18,8 @@
                             {% else %}
                             <p>Please enter your login credentials bellow. </p>
                             {% endif %}
-                            <input name="username" type="text"     class="login-username" value="username">
-                            <input name="password" type="password" class="login-password" value="password">
+                            <input name="username" type="text"     class="login-username" value="请输入用户名" onfocus="if(value=='请输入用户名') {value=''}" onblur="if (value=='') {value='请输入用户名'}">
+                            <input name="password" type="password" class="login-password" value="password" onfocus="if(value=='password') {value=''}" onblur="if (value=='') {value='password'}">
                             <div class="one-half">
                                 <button type="submit" class="button button-green">Login</button>
                             </div>
