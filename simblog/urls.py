@@ -6,6 +6,8 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('blog.urls')),
     url(r'^blog/', include('blog.urls')),
+    url(r'^charts/', include('charts.urls')),
+    # url(r'^oldblog/', include('blog.urls')),
 ]
 
 # Other base url
