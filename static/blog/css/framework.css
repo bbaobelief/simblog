@@ -12,11 +12,11 @@ License:        You may not reuse or redistribute this framework
 
 
 @charset "utf-8";
-@import url(http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+/*@import url(http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);*/
 /*@import url(http://fonts.useso.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);*/
-@import url(http://fonts.useso.com/css?family=Lato:400,700,900);
-@import url(http://fonts.useso.com/css?family=Dosis:200,300,400,500,600,700,800);
-@import url(http://fonts.useso.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900);
+/*@import url(http://fonts.useso.com/css?family=Lato:400,700,900);*/
+/*@import url(http://fonts.useso.com/css?family=Dosis:200,300,400,500,600,700,800);*/
+/*@import url(http://fonts.useso.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900);*/
 /*@import url(http://fonts.useso.com/css?family=Signika+Negative:300,400,600,700);*/
 /* CSS Document */
 
@@ -116,9 +116,9 @@ div, a, p, img, blockquote, form, fieldset, textarea, input, label, iframe, code
 /*	2. Typography  */ 
 
 p {
-	line-height: 30px;
-	margin-bottom: 30px;
-	font-size:13px;
+	line-height: 25px;
+	margin-bottom: 10px;
+	font-size:14px;
 	letter-spacing:0px;
 }
 
@@ -243,7 +243,7 @@ ol > li:last-child, ul > li:last-child {
 /*//////////////////////////////////////*/
 
 body{
-	font-family:'Roboto', Lato, "Microsoft YaHei", sans-serif;
+	font-family: Roboto, Lato, Microsoft YaHei, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	color:#666;
 	font-size:12px;
@@ -269,17 +269,19 @@ h2{
 }
 
 h3{
-	font-size:17px;
+    color: #555;
+    font-family: Lato, PingFang SC, Microsoft YaHei, sans-serif;
+    font-size: 16px;
 	margin-bottom:10px;
 	font-weight:700;
-	color:#212935
 }
 
 h4{
+	font-family:Lato, PingFang SC, Microsoft YaHei, sans-serif;
 	font-size:15px;
-	margin-bottom:10px;
-	font-weight:800;
+    font-weight: 400;
 	color:#212935;
+	margin-bottom:10px;
 }
 
 h5{
@@ -290,9 +292,9 @@ h5{
 }
 
 h1, h2, h3, h4, h5, h6{
-	font-family:'Roboto', sans-serif;
+	font-family:Lato, PingFang SC, Microsoft YaHei, sans-serif;
 	-webkit-font-smoothing: antialiased;
-	color:#1f1f1f;	
+	color:#1f1f1f;
 }
 
 a:hover{
@@ -2588,7 +2590,7 @@ table tr:hover td{
 /*	22. Timeline */ 
 
 .timeline{
-	margin-top:30px;	
+	margin-top:10px;
 }
 
 .timeline-decoration{
@@ -4185,7 +4187,7 @@ table tr:hover td{
 }
 
 .blog-post-text{
-    margin-bottom:20px;
+    margin-bottom:10px;
 }
 
 .blog-post-date i{
