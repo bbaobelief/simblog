@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',
+    # 'bootstrap_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,3 +124,9 @@ LOGIN_REDIRECT_URL='/blog/'
 #     'SHOW_TOOLBAR_CALLBACK': 'simblog.settings.show_toolbar',
 #     'JQUERY_URL': '//code.jquery.com/jquery-1.11.2.min.js',
 # }
+
+# from django.conf import global_settings
+# TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+#     'django.core.context_processors.request',
+# )
+# BOOTSTRAP_ADMIN_SIDEBAR_MENU = True

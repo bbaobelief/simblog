@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
+from django.views.generic.base import ContextMixin
+from blog.models import Category, Article, Tag
 
-# from django.views.generic.base import ContextMixin
+
 # from django.contrib.messages.views import SuccessMessageMixin
 # from django.contrib import messages
 
@@ -12,26 +14,27 @@ class LoginRequiredMixin(object):
         view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
         return login_required(view)
 
-# class BreadcrumbMixin(ContextMixin):
-#     """
-#     With breadcrumb
-#     """
-#     def get_context_data(self, **kwargs):
-#         context = super(BreadcrumbMixin, self).get_context_data(**kwargs)
-#         context['breadcrumb'] = []
-#         return context
-
-class SimblogListView(LoginRequiredMixin, ListView):
+class SidebarMixin(ContextMixin):
+    """
+    Public Sidebar
+    """
     def get_context_data(self, **kwargs):
-        context = super(SimblogListView, self).get_context_data(**kwargs)
-        context['page_name'] = (self.model._meta.verbose_name, '博客')
+        context = super(SidebarMixin, self).get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        context['articles'] = Article.objects.filter(is_show='True').order_by("-publish_time")[0:10]
+        context['tags'] = Tag.objects.all()
+        return context
+
+class SimListView(ListView, SidebarMixin):
+    paginate_by = 5
+    def get_context_data(self, **kwargs):
+        context = super(SimListView, self).get_context_data(**kwargs)
         return context
 
 
-class SimblogDetailView(LoginRequiredMixin, DetailView):
+class SimDetailView(DetailView, SidebarMixin):
     def get_context_data(self, **kwargs):
-        context = super(SimblogDetailView, self).get_context_data(**kwargs)
-        context['page_name'] = (self.model._meta.verbose_name, self.object)
+        context = super(SimDetailView, self).get_context_data(**kwargs)
         return context
 
 
