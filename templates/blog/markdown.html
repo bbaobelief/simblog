@@ -1,0 +1,43 @@
+{% extends "layout/base.html" %}
+{% block title %} 博客 {% endblock %}
+{% block content %}
+        {% load staticfiles %}
+        {% load custom_markdown %}
+        <div class="header-clear"></div>
+        <div class="content">
+            <div class="blog-posts">
+                <!-- POST 1-->
+                <div class="blog-post">
+                    <!-- <img src="images/pictures/3w.jpg" alt="img" class="responsive-image"> -->
+                    <a class="back-button" href="/blog/list/"><i class="fa fa-chevron-left"></i> Back</a>
+                    <h3 class="page-blog-title">{{ article.title }}</h3>
+                    <!-- <p class="blog-post-date"><i class="fa fa-calendar"></i>20/01/2015</p> -->
+                    <!-- <strong class="page-blog-tags">In: <a href="#">Web Design, Mobile Templates, Blog</a></strong> --> 
+                    <p>
+                        <i class="fa fa-calendar" style="margin-right:10px"></i>{{ article.publish_time|date:"Y-m-d H:i:s" }}
+                        <a href="#" style="margin-left: 10px;color:inherit"><i class="fa fa-book" style="margin-right:10px"></i>{{ article.category|capfirst }}</a>
+                    </p>
+                    <p class="blog-post-text">
+                        {{ article.content|custom_markdown }}                           
+                        <div class="clear"></div>
+                        <p class="blog-post-more">In: 
+                            {% for tag in article.tags.all %}
+                            <a href="{% url 'blog_detail' tag.id %}">{{ tag.tag_name }}, </a>
+                            {% empty %}
+                            <a href="http://{{ request.get_host }}{{ request.path }}">Not tag...</a>
+                            {% endfor %}
+                        </p>
+                    </p>
+                </div>
+                <!-- <div class="decoration hide-if-mobile"></div> -->
+                
+                <div class="notification-page">
+                    {% include "blog/duoshuo.html" %}
+                </div>
+            </div>
+                {% include 'blog/../layout/blog-sidebar.html' %}
+            <div class="decoration"></div>
+        </div>
+        <div class="decoration"></div>
+        {% include 'layout/footer.html' %}
+{% endblock %}

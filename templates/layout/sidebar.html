@@ -1,0 +1,91 @@
+{% load staticfiles %}
+            <div class="blog-sidebar">
+                <div class="widget container hide-if-mobile">
+                    <h4 style="margin-bottom: 30px;">Looking for something?</h4>
+                    <form id="search" name="search_form" action="{% url 'blog_search' %}" method="post">{% csrf_token %}
+                        <!-- <input  value="{{ article }}" class="text"/> -->
+                        <input class="blog-search text" name="title" value="{{ search }}" type="text" placeholder="Search here...">
+                    </form>
+                </div>
+                <div class="widget container hide-if-mobile">
+                    <h4>about.me</h4>
+                    <div class="decoration"></div>
+                    <div class="container no-bottom">
+                        <p class="thumb-left no-bottom"> <!-- user-list-item -->
+                            <img src="/static/blog/img/pictures/1s.jpg" alt="img">
+                            <strong>User zheng</strong>
+                            <em><br>
+                            Lorem Ipsum is simply dummy text of the printing and typeset. ed sed gravida turpis.</em>
+                            <p class="blog-post-more"><a href="#">Read More<i class="fa fa-angle-right"></i></a></p>
+                        </p>
+                    </div>
+                </div>
+                <div class="widget container">
+                    <h4>文章分类</h4>
+                    <div class="decoration"></div>
+                    {% load simfilter %}
+                    {% if categories %}
+                    <div class="one-half">
+                        <ul class="blog-category">
+                            {% for category in categories|Category_LR:'left_value' %}
+                            <li><a href="{% url 'blog_category' category.pk %}"><i class="fa fa-angle-right"></i>{{ category|upper }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="one-half last-column">
+                        <ul class="blog-category">
+                            {% for category in categories|Category_LR:'right_value' %}
+                            <li><a href="{% url 'blog_category' category.pk %}"><i class="fa fa-angle-right"></i>{{ category|upper }} </a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    {% else %}
+                        <li>No Category Yet.</li>
+                    {% endif %}
+                </div>           
+                <div class="widget container hide-if-mobile">
+                    <h4>热门标签</h4>
+                    <div class="decoration"></div>
+                    <ul class="tag-clouds">
+                        {% for tag in tags %}
+                        <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> {{ tag|capfirst }} </a>
+                        {% empty %}
+                        <li>No Tag Yet.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="widget container hide-if-mobile">
+                    <h4>最新文章</h4>
+                    <div class="decoration"></div>
+                    <ul class="normal-list">
+                        {% for article in articles %}
+                        <li><a href="{% url 'blog_detail' article.id %}" style="font-size: 14px;color:inherit">{{ article.title|truncatechars_html:40 }}</a></li>
+                        {% empty %}
+                        <li>No Article Yet.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="widget container hide-if-mobile">
+                    <h4>最新评论</h4>
+                    <div class="decoration"></div>
+                    <ul class="normal-list">
+                    <!-- 多说最新评论 start -->
+                        <div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
+                    <!-- 多说最新评论 end -->
+                    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                    <script type="text/javascript">
+                    var duoshuoQuery = {short_name:"fashaoblog"};
+                        (function() {
+                            var ds = document.createElement('script');
+                            ds.type = 'text/javascript';ds.async = true;
+                            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                            ds.charset = 'UTF-8';
+                            (document.getElementsByTagName('head')[0] 
+                             || document.getElementsByTagName('body')[0]).appendChild(ds);
+                        })();
+                    </script>
+                    <!-- 多说公共JS代码 end -->
+                    </ul>
+                </div>
+            </div>

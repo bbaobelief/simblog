@@ -7,7 +7,7 @@ def Category_LR(value,arg): # Only one argument.
     """category as left or right"""
     value_len = len(value)/2
     left_value = value[0:value_len]
-    if (value_len % 2) == 0:
+    if (value_len % 2) != 0:
        left_value = value[0:value_len]
        right_value = value[value_len:len(value)]
     else:

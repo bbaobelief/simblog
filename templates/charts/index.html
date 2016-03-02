@@ -1,0 +1,226 @@
+{% extends "layout/base.html" %}
+{% block title %} 博客 {% endblock %}
+{% block content %}
+        {% load staticfiles %}
+        <div class="header-clear"></div>
+        <div class="content">
+            <div class="one-half-responsive">
+                <div class="container half-bottom">
+                <h3>Cpu Charts</h3>
+                    <div class="full-bottom" id="pie-chart">
+                        <canvas id="cpu-chart" width="500" height="300"></canvas>
+                    </div>  
+                </div>
+            </div>
+            <div class="decoration hide-if-responsive"></div>
+            <div class="one-half-responsive last-column">
+                <div class="container half-bottom">
+                <h3>Network Charts</h3>
+                    <div class="full-bottom" id="bar-chart">
+                        <canvas id="network-chart" width="500" height="300"></canvas>
+                    </div>
+                </div>  
+            </div>
+            <div class="decoration"></div>
+
+            <div class="one-half-responsive">
+                <div class="container half-bottom">
+                <h3>pMemory Charts</h3>
+                    <div class="full-bottom" id="pie-chart">
+                        <canvas id="pmem-chart" width="500" height="300"></canvas>
+                    </div>  
+                </div>
+            </div>
+            <div class="decoration hide-if-responsive"></div>
+            <div class="one-half-responsive last-column">
+                <div class="container half-bottom">
+                <h3>vMemory Charts</h3>
+                    <div class="full-bottom" id="bar-chart">
+                        <canvas id="vmem-chart" width="500" height="300"></canvas>
+                    </div>
+                </div>  
+            </div>
+            <div class="decoration"></div>
+            
+            <h3>Memory Charts</h3>
+            <div class="container half-bottom">  
+                <div class="one-half-responsive">
+                    <div class="full-bottom" id="pie-chart">
+                        <canvas id="generate-pie-chart" height="300"></canvas>
+                    </div>  
+                </div>
+                <div class="one-half-responsive last-column">
+                    <h3>Pie Statistics</h3>
+                    <p class="no-bottom"><em class="chart-box" style="background-color:#c0392b"></em>50% More Red!</p>
+                    <p class="no-bottom"><em class="chart-box" style="background-color:#2ecc71"></em>10% More Green!</p>
+                    <p class="no-bottom"><em class="chart-box" style="background-color:#f1c40f"></em>10% More Yellow!</p>
+                    <p class="no-bottom"><em class="chart-box" style="background-color:#2c3e50"></em>10% More Blue!</p>
+                </div>
+            </div>
+
+            <div class="decoration"></div>
+            <div class="one-half-responsive">
+                <div class="container half-bottom">
+                <h3>CSS3 Horizontal Square Charts</h3>
+                <p>Charts are awesome, important and they are a must, multiple color variations to make it sweet!</p>
+                    <div class="chart">
+                        <strong>A red chart</strong>
+                        <em>10%</em>
+                        <div class="chart-background">
+                            <div class="red-chart p10"></div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <strong>A yellow chart</strong>
+                        <em>30%</em>
+                        <div class="chart-background">
+                            <div class="yellow-chart p30"></div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <strong>A blue chart</strong>
+                        <em>50%</em>
+                        <div class="chart-background">
+                            <div class="blue-chart p50"></div>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <strong>And a green chart!</strong>
+                        <em>90%</em>
+                        <div class="chart-background">
+                            <div class="green-chart p90"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="decoration hide-if-responsive"></div>
+
+            <div class="one-half-responsive last-column">
+                <div class="container half-bottom">
+                <h3>CSS3 Horizontal Rounded Charts</h3>
+                <p>Charts are awesome, important and they are a must, multiple color variations to make it sweet!</p>
+                    <div class="chart chart-round">
+                        <strong>A red chart</strong>
+                        <em>10%</em>
+                        <div class="chart-background">
+                            <div class="red-chart p10"></div>
+                        </div>
+                    </div>
+                    <div class="chart chart-round">
+                        <strong>A yellow chart</strong>
+                        <em>30%</em>
+                        <div class="chart-background">
+                            <div class="yellow-chart p30"></div>
+                        </div>
+                    </div>
+                    <div class="chart chart-round">
+                        <strong>A blue chart</strong>
+                        <em>50%</em>
+                        <div class="chart-background">
+                            <div class="blue-chart p50"></div>
+                        </div>
+                    </div>
+                    <div class="chart chart-round">
+                        <strong>And a green chart!</strong>
+                        <em>90%</em>
+                        <div class="chart-background">
+                            <div class="green-chart p90"></div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="clear"></div>
+            <div class="decoration"></div>
+        </div>
+        {% include 'layout/footer.html' %}
+        
+<script type="text/javascript">
+<!-- $(document).ready(function() { -->
+
+	/*/////////*/
+	/*Pie Chart*/
+	/*/////////*/
+    
+    var lineData = {
+        labels : ["January","February","March","April","May","June","July"],
+        datasets : [
+            {
+                fillColor : "rgba(220,220,220,0.5)",
+                strokeColor : "rgba(220,220,220,1)",
+                pointColor : "rgba(220,220,220,1)",
+                pointStrokeColor : "#fff",
+                data : [65,59,90,81,56,55,40,65,59,90,81,56,55]
+            },
+            {
+                fillColor : "rgba(151,187,205,0.5)",
+                strokeColor : "rgba(151,187,205,1)",
+                pointColor : "rgba(151,187,205,1)",
+                pointStrokeColor : "#fff",
+                data : [28,48,40,19,96,27,100,28,48,40,19,96,27]
+            }
+        ]
+    }
+    
+    
+	var pieData = [
+		{	value: 50,	color: "#e74c3c", highlight: "#c0392b", label: "Red"			},
+		{	value: 10,	color: "#2ecc71", highlight: "#27ae60",	label: "Green"			},
+		{	value: 20,	color: "#f1c40f", highlight: "#f39c12",	label: "Yellow"			},
+		{	value: 20,	color: "#2c3e50", highlight: "#34495e",	label: "Dark Blue"		}
+	];
+
+	var barChartData = {
+		labels : ["One","Two","Three","Four","Five"],
+		datasets : [
+			{
+				fillColor : "rgba(0,0,0,0.1)",
+				strokeColor : "rgba(0,0,0,0.2)",
+				highlightFill: "rgba(0,0,0,0.25)",
+				highlightStroke: "rgba(0,0,0,0.25)",
+				data : [20,10,40,30,10]
+			}
+		]
+	}
+    
+    var data = [
+        {
+            value: 30,
+            color:"#F7464A"
+        },
+        {
+            value : 50,
+            color : "#E2EAE9"
+        },
+        {
+            value : 100,
+            color : "#D4CCC5"
+        },
+        {
+            value : 40,
+            color : "#949FB1"
+        },
+        {
+            value : 120,
+            color : "#4D5360"
+        }
+
+    ]
+
+	window.onload = function(){
+    
+		var line_chart_1 = document.getElementById("cpu-chart").getContext("2d");
+		window.line_chart_1 = new Chart(line_chart_1).Line(lineData);
+
+		var bar_chart_1 = document.getElementById("network-chart").getContext("2d");
+		window.bar_chart_1 = new Chart(bar_chart_1).Bar(barChartData);
+        
+		var pie_chart_1 = document.getElementById("pmem-chart").getContext("2d");
+		window.pie_chart_1 = new Chart(pie_chart_1).Pie(pieData);
+        
+		var dou_chart_1 = document.getElementById("vmem-chart").getContext("2d");
+		window.dou_chart_1 = new Chart(dou_chart_1).Doughnut(data);
+	};
+
+<!-- }); -->
+</script>
+{% endblock %}

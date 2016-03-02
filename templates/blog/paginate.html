@@ -1,0 +1,11 @@
+            <div class="blog-posts">
+                {% if page_obj.has_previous %}
+                <p class="blog-post-date" style="width: 48%;"><a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">上一页</a></p>
+                {% else %}
+                <p class="blog-post-date"><a href="#"></a></p>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <p style="text-align:center;font-size: 14px;float:left;">{{ page_obj.number }} | {{ page_obj.paginator.num_pages }}</p>
+                <p style="float: right;"><a href="{{ request.path }}?page={{ page_obj.next_page_number }}">下一页</a></p>
+                {% endif %}
+            </div>

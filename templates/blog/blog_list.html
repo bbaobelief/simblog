@@ -4,14 +4,12 @@
         <div class="header-clear"></div>
         <div class="content">
             <div class="blog-posts">
-                <div class="blog-post last-column">
-                    <!-- <h3>置顶文章</h3> -->
-                    <!-- <p>Tabs are awesome, but having them plugin-less is more amazing!</p> -->
+<!--                 <div class="blog-post last-column">
                     <div class="tabs">
-                        <a href="#" class="tab-but tab-but-1 tab-active">Tab 1</a>
-                        <a href="#" class="tab-but tab-but-2">Tab 2</a>
-                        <a href="#" class="tab-but tab-but-3">Tab 3</a>
-                        <a href="#" class="tab-but tab-but-4">Tab 4</a>     
+                        <a href="#" class="tab-but tab-but-1 tab-active">top</a>
+                        <a href="#" class="tab-but tab-but-2">new</a>
+                        <a href="#" class="tab-but tab-but-3">heat</a>
+                        <a href="#" class="tab-but tab-but-4">digest</a>
                     </div>
                     <div class="tab-content tab-content-1" style="background-color: rgba(238, 238, 238, 0);">
                         <p>
@@ -46,26 +44,28 @@
                         </p>
                     </div>       
                 </div> 
-                <div class="decoration"></div>
-            
-            
+                <div class="decoration"></div> -->
+
                 {% for blog in article %}
-                <div class="blog-post">
+                <div class="blog-post" style="margin-bottom:24px;">
                     <h3 class="blog-post-title"><a href="{% url 'blog_detail' blog.id %}" style="color:inherit">{{ blog.title }}</a></h3>
                     <p class="blog-post-text">
                         {{ blog.content|safe|truncatechars_html:160 }}
                     </p>
-                    <p class="blog-post-date">
+                    <p class="blog-post-date" style="margin-top: 4px;">
                         <i class="fa fa-calendar"></i>{{ blog.publish_time|date:"d/m/Y" }}
-                        <a href="#" style="margin-left: 10px;color:inherit" class="hide-if-mobile"><i class="fa fa-book"></i>{{ blog.category|capfirst }}</a>
-                        </p>
-                    <p class="blog-post-more"><a href="{% url 'blog_detail' blog.id %}">Read More<i class="fa fa-angle-right"></i></a></p>
+                        <a href="{% url 'blog_category' blog.category.pk %}" style="margin-left: 10px;color:inherit" class="hide-if-mobile"><i class="fa fa-book"></i>{{ blog.category|capfirst }}</a>
+                    </p>
+                    <p class="blog-post-more" style="margin-top: 4px;"><a href="{% url 'blog_detail' blog.id %}">Read More<i class="fa fa-angle-right"></i></a></p>
                 </div>
+                {% empty %}
+                <li>No Article Yet.</li>
                 <div class="decoration"></div>
                 {% endfor %}
             </div>
-            {% include 'blog/blog-sidebar.html' %}
-            <div class="decoration"></div>
-            {% include 'layout/footer.html' %}
+            {% include 'layout/sidebar.html' %}
+            {% include 'blog/paginate.html' %}
         </div>
+        <div class="decoration"></div>
+        {% include 'layout/footer.html' %}
 {% endblock %}

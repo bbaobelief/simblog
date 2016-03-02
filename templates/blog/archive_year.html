@@ -1,0 +1,26 @@
+{% extends "layout/base.html" %}
+{% block title %} 博客 {% endblock %}
+{% block content %}
+        <div class="header-clear"></div>
+        <div class="content">
+            <div class="blog-posts">
+                <div class="container no-bottom">                    
+                    <h3>{{ year|date:"Y" }}</h3>
+                    {% for article in archive_list %}
+                        <div class="blog-post timeline">
+                            <p class="blog-post-date" style="width: 100%;">
+                                <a href="{% url 'blog_archive_month' article.publish_time|date:'Y' article.publish_time|date:'m' %}" title="{{ article.title }}" style="color:#666;">{{ article.publish_time|date:"m月d日" }}</a>
+                                <a href="{% url 'blog_detail' article.id %}" style="margin-left: 20px;color:#666;">{{ article.title }}</a>
+                            </p>
+                        </div>
+                    {% empty %}
+                    <h3>No article yet.</h3>
+                    {% endfor %}
+                </div>
+            </div>
+            {% include 'layout/sidebar.html' %}
+            {% include 'blog/paginate.html' %}
+        </div>
+        <div class="decoration"></div>
+        {% include 'layout/footer.html' %}
+{% endblock %}

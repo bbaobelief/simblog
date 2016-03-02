@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models, migrations
+from django.db import migrations, models
 from django.conf import settings
 
 
@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
             name='Category',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=20, verbose_name='\u5206\u7c7b')),
+                ('name', models.CharField(max_length=20, verbose_name='\u5206\u7c7b', db_index=True)),
                 ('sorting', models.IntegerField(default=10, verbose_name='\u6392\u5e8f', blank=True)),
             ],
             options={
@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
             name='Link',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=30)),
+                ('name', models.CharField(max_length=30, db_index=True)),
                 ('email', models.EmailField(max_length=254, blank=True)),
                 ('website', models.URLField()),
                 ('sorting', models.IntegerField(default=0, verbose_name='\u6392\u5e8f', blank=True)),
@@ -78,7 +78,7 @@ class Migration(migrations.Migration):
             name='Tag',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('tag_name', models.CharField(max_length=20)),
+                ('name', models.CharField(max_length=20, db_index=True)),
                 ('create_time', models.DateTimeField(auto_now_add=True)),
             ],
             options={
