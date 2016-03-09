@@ -1,0 +1,33 @@
+{% extends "oldblog/layout/base.html" %}
+{% block title %} {{ month|date:"M" }} | 博客归档 {% endblock %}
+<!-- content starts-->
+{% block content %}
+            <div  class="post">
+              <div  class="post-archive">
+                <h2>{{ month|date:'M' }}</h2>
+                {% for article in object_list %}
+                <ul  class="listing">
+                  <li>
+                    <span  class="date">
+                      <a href="{% url 'oldblog_archive' %}" title="{{ article.title }} ">{{ article.publish_time|date:"m月d日" }}</a>
+                    </span>
+                    <a href="{% url 'oldblog_detail' article.id %}" title="{{ article.title }} ">{{ article.title }}</a>
+                  </li>
+                </ul>
+                {% endfor %}
+              </div>
+            </div>	
+            <div class="page-navigator center">
+              {% if previous_month %}
+                <a href="{% url 'oldblog_archive_month' previous_month|date:'Y'  previous_month|date:'m' %}" class="pre">{{ previous_month|date:"F Y" }}</a>
+              {% endif %}
+
+              {% if next_month %}
+                <a href="{% url 'oldblog_archive_month' next_month|date:'Y' next_month|date:'m'%}" class="next">{{ next_month|date:"F Y" }}</a>
+              {% endif %}
+            </div>		
+{% endblock %}
+<!-- content ends-->
+{% block sidebar %}
+{% include "oldblog/layout/sidebar.html" %}
+{% endblock %}

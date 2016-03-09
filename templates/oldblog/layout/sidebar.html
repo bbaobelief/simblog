@@ -1,0 +1,47 @@
+          <div id="sidebar">
+            <div class="widget">
+              <form id="search" name="search_form" action="{% url 'oldblog_search' %}" method="post"> {% csrf_token %}
+                <input name="title" placeholder="Search ..." type="text" value="{{ search }}" class="text"/>
+              </form>
+            </div>
+            <div class="widget">
+              <div class="widget-title">文章分类</div>
+              <ul>
+              {% for category in categories %}
+                <li><a href="{% url 'oldblog_category' category.id %}" title={{ category.name }}>{{ category.name }}</a></li>
+              {% empty %}
+                <li>No Category Yet.</li>
+              {% endfor %}
+              </ul>
+            </div>
+            <div class="widget">
+              <div class="widget-title">最新文章</div>
+              <ul>
+              {% for article in articles %}
+                <li><a href="{% url 'oldblog_detail' article.id %}" title={{ article.title }}>{{ article.title|slice:"20" }}</a></li>
+              {% empty %}
+                <li>No Article Yet.</li>
+              {% endfor %}
+              </ul>
+            </div>
+            <div class="widget">
+              <div class="widget-title">热门标签</div>
+              <ul class="tag-clouds">
+                {% for tag,count in tags %}
+                <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}">{{ tag|capfirst }}</a>
+                {% empty %}
+                <li>No Tag Yet.</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="widget">
+              <div class="widget-title">友情链接</div>
+                <ul>
+                {% for link in links %}
+                  <li><a href="{{ link.website }}" title={{ link.name }} target="_blank">{{ link.name }}</a></li>
+                {% empty %}
+                  <li>No Link Yet.</li>
+                {% endfor %}
+                </ul>
+            </div>
+          </div>

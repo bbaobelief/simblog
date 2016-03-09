@@ -1,0 +1,51 @@
+{% extends "oldblog/layout/base.html" %}
+{% block title %} {{ Article_post.title }} - opdev.cn {% endblock %}
+<!-- content starts-->
+{% block content %}
+		<div class="post">
+		  <h1 class="post-title">{{ Article_post.title }}</h1>
+		  <div class="post-meta">{{ Article_post.publish_time }}
+            <a href="/blog/category/{{ Article_post.category.id }}/" style="color: #999;padding-left:10px;">{{ Article_post.category }}</a>
+            <a href="{{ source_link }}" target="_blank" style="color: #999;padding-left:10px;">{{ Article_post.get_source_display }}</a>&nbsp;&nbsp;{{ Article_post.counts }}℃
+            {% if user.is_authenticated %}
+            <a href="{% url 'blogapp.views.editor_blog' id %}" style="color: #999;padding-left:10px;">编辑</a>
+            {%endif%}           
+          </div>
+		  <div class="post-content">
+			{{ Article_post.content|safe}}
+		  </div>
+			<!-- 多说评论框 start -->
+			<div id="fb_comments_container">
+			  <div class="ds-thread" data-thread-key="{{ id }}" data-title="{{ title }}" data-url="http://www.opdev.cn/blog/article/{{id}}.html"></div>
+			<!-- 多说评论框 end -->
+				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+				<script type="text/javascript">
+				var duoshuoQuery = {short_name:"fashao"};
+					(function() {
+						var ds = document.createElement('script');
+						ds.type = 'text/javascript';ds.async = true;
+						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+						ds.charset = 'UTF-8';
+						(document.getElementsByTagName('head')[0] 
+						 || document.getElementsByTagName('body')[0]).appendChild(ds);
+					})();
+				</script>
+				<!-- 多说公共JS代码 end -->
+			</div>
+		</div>
+{% endblock %}
+<!-- content ends-->
+{% block page_scripts %}
+<script type="text/javascript">
+$(document).ready(function() {
+	//为图片添加超链接
+	$(".post-content img").each(function() {
+		var strA = "<a href='" + this.src + "' data-lightbox='example'></a>";
+		$(this).wrapAll(strA);
+	});
+});
+</script>
+{% endblock %}
+{% block sidebar %}
+{% include 'sidebar.html' %}
+{% endblock %}

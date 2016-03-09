@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} 运维开发 - 首页 {% endblock %}
+<!-- content starts-->
+{% block content %}
+
+{% for blog in bloglist.object_list %}
+<div class="post">
+  <h2 class="post-title"><a href="/blog/article/{{ blog.id }}.html">{{ blog.title }}</a></h2>
+  <div class="post-meta">{{ blog.publish_time }}
+     <a href="/blog/category/{{ blog.category.id }}/" style="color: #999;padding-left:10px;">{{ blog.category }}</a>
+     &nbsp;{{ blog.counts }}℃
+  </div>
+  <div class="post-content"><div class="p_part"><a href="/blog/article/{{ blog.id }}.html">{{ blog.content|safe|truncatechars_html:160 }}</a></div></div>
+</div>
+{% empty %}
+	<div class="post-meta">抱歉，此分类还没有文章。</div>
+{% endfor %}
+{% include 'paging.html' %}
+{% endblock %}
+<!-- content ends-->
+
+{% block sidebar %}
+{% include 'sidebar.html' %}
+{% endblock %}

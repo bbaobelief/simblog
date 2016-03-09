@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="alternate" type="application/rss+xml" title="atom 1.0" href="/feed">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="blog,opdev.cn" />
+    <meta name="description" content="运维开发。。。" />	
+    <title>{% block title %} {% endblock %} | Opdev.cn | 运维开发</title>
+    {% load staticfiles %}
+    {% load activelink %}
+    <!-- OldBlog -->
+    <link href="{% static '/static/oldblog/css/pure-min.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static '/static/oldblog/css/blog_basic.min.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static '/static/oldblog/css/grids-responsive-min.css' %}" type="text/css" rel="stylesheet"/>
+    
+    <!-- Font Awesome -->
+    <link href="{% static '/static/oldblog/css/font-awesome.min.css' %}" type="text/css" rel="stylesheet"/>
+    
+    <!-- DIY Style -->
+    <link href="{% static '/static/oldblog/css/style.min.css' %}" type="text/css" rel="stylesheet"/>
+
+    <!-- Top -->
+    <link href="{% static '/static/oldblog/css/top.css' %}" type="text/css" rel="stylesheet"/>
+     
+    <!-- inline styles related to this page -->
+    {% block page_styles %}{% endblock %}
+  </head>
+  <body>
+    <div class="body_container">
+      <div id="header">
+        <div class="site-name">
+          <h1 class="hidden">opdev.cn</h1><a id="logo" href="{% url 'oldblog_list' %}">op<span>dev</span>.cn</a>
+        </div>
+        <div id="nav-menu">
+          <a href="{% url 'oldblog_list' %}" class="{% ifactive  'oldblog_list' %}selected active current{% endifactive %}">博客</a>
+          <a href="{% url 'oldblog_archive' %}" class="{% ifactive  'oldblog_archive' %}selected active current{% endifactive %}">归档</a>
+          <a href="#">关于</a>
+          {% if user.is_authenticated %}
+          <a href="#" class="">管理</a>
+          {%else%}
+          <a href="/rss/" target="_black" class="">订阅</a>
+          {%endif%}
+        </div>
+      </div>
+      <div id="layout" class="pure-g">
+        <div class="pure-u-1 pure-u-md-3-4">
+          <div class="content_container">
+            <!-- content starts-->
+            {% block content %}
+
+            {% endblock %}
+            <!-- content ends-->
+          </div>
+        </div>
+        <div class="pure-u-1-4">
+          <!-- sidebar starts-->
+          {% block sidebar %}
+
+          {% endblock %}
+          <!-- sidebar ends-->
+        </div>
+      </div>
+      <!-- 回到顶部 -->
+      <a href="#" onclick="gotoTop();return false;" class="totop"></a>
+      <div id="footer">Copyright © 2015 <a href="http://opdev.cn" real="nofollow">opdev.cn</a>. Powered by
+        <a rel="nofollow" target="_blank" href="http://www.opdev.cn">Django</a>
+        <a rel="nofollow" target="_blank" href="http://www.opdev.cn/sitemap.xml"> sitemap</a>. Theme by
+        <a rel="nofollow" target="_blank" href="http://chopstack.com/">cho</a>
+      </div>
+    </div>
+    
+    <!-- Top -->
+    <script type="text/javascript" src="{% static '/static/oldblog/js/top.js' %}"></script>
+    
+    <!-- Jquery -->
+    <script type="text/javascript" src="{% static '/static/oldblog/js/jquery.min.js' %}"></script> 
+    
+    <!-- page js plugins -->
+    {% block page_plugin_scripts %}{% endblock %}
+    
+    <!-- page script -->
+    {% block page_scripts %}{% endblock %}
+    
+  </body>
+</html>

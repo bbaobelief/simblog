@@ -4,46 +4,46 @@
         {% load staticfiles %}
         <div class="header-clear"></div>
         <div class="content">
-            <div class="blog-posts">
-                <!-- POST 1-->
-                <div class="blog-post">
-                    <!-- <img src="images/pictures/3w.jpg" alt="img" class="responsive-image"> -->
-                    <a class="back-button" href="{% url 'blog_list' %}"><i class="fa fa-chevron-left"></i> Back</a>
-                    <h3 class="page-blog-title" style="margin-bottom:30px;">{{ article.title }}</h3>
-                    <!-- <p class="blog-post-date"><i class="fa fa-calendar"></i>20/01/2015</p> -->
-                    <!-- <strong class="page-blog-tags">In: <a href="#">Web Design, Mobile Templates, Blog</a></strong> --> 
-                    <p>
-                        <i class="fa fa-calendar" style="margin-right:10px"></i>{{ article.publish_time|date:"Y-m-d H:i:s" }}
-                        <a href="{% url 'blog_category' article.category.pk %}" style="margin-left: 10px;color:inherit"><i class="fa fa-book" style="margin-right:10px"></i>{{ article.category|capfirst }}</a>
-                        <i class="fa fa-eye" style="margin:0px 10px 0px 10px"></i>25℃
-                        <i class="fa fa-user" style="margin:0px 10px 0px 10px"></i>{{ article.author.name }}
-                        {% if user.is_superuser %}
-                        <a href="http://{{ request.get_host }}/admin/blog/article/{{ article.id }}/" style="margin-left: 10px;color:inherit"><i class="fa fa-edit" style="margin-right:10px"></i>编辑</a>
-                        {%endif%} 
-                    </p>
-                    <p class="blog-post-text">
-                        {{ article.content|safe }}                           
-                        <div class="clear"></div>
-                        <p class="blog-post-date">
-                            <i class="fa fa-tag" style="margin-right:2px;margin-top: 20px;">:</i>
-                            {% for tag in article.tags.all %}
-                            <a href="{% url 'blog_detail' tag.id %}">{{ tag.name }}, </a>
-                            {% empty %}
-                            <a href="http://{{ request.get_host }}{{ request.path }}">Not tag.</a>
-                            {% endfor %}
-                        </p>
-                        <p class="blog-post-more" style="margin-top: 20px;">In:
-                            <a href="http://{{ request.get_host }}{{ request.path }}">http://{{ request.get_host }}{{ request.path }}</a>
-                        </p>
-                    </p>
-                </div>
-                <!-- <div class="decoration hide-if-mobile"></div> -->
-                
-                <div class="notification-page">
-                    {% include "blog/duoshuo.html" %}
-                </div>
+          <div class="blog-posts">
+            <!-- POST 1-->
+            <div class="blog-post">
+              <!-- <img src="images/pictures/3w.jpg" alt="img" class="responsive-image"> -->
+              <a class="back-button" href="{% url 'blog_list' %}"><i class="fa fa-chevron-left"></i> Back</a>
+              <h3 class="page-blog-title" style="margin-bottom:30px;">{{ article.title }}</h3>
+              <!-- <p class="blog-post-date"><i class="fa fa-calendar"></i>20/01/2015</p> -->
+              <!-- <strong class="page-blog-tags">In: <a href="#">Web Design, Mobile Templates, Blog</a></strong> --> 
+              <p>
+                <i class="fa fa-calendar" style="margin-right:10px"></i>{{ article.publish_time|date:"Y-m-d H:i:s" }}
+                <a href="{% url 'blog_category' article.category.pk %}" style="margin-left: 10px;color:inherit"><i class="fa fa-book" style="margin-right:10px"></i>{{ article.category|capfirst }}</a>
+                <i class="fa fa-eye" style="margin:0px 10px 0px 10px"></i>25℃
+                <i class="fa fa-user" style="margin:0px 10px 0px 10px"></i>{{ article.author.name }}
+                {% if user.is_superuser %}
+                <a href="http://{{ request.get_host }}/admin/blog/article/{{ article.id }}/" style="margin-left: 10px;color:inherit"><i class="fa fa-edit" style="margin-right:10px"></i>编辑</a>
+                {%endif%} 
+              </p>
+              <p class="blog-post-text">
+                {{ article.content|safe }}                           
+                <div class="clear"></div>
+                <p class="blog-post-date">
+                    <i class="fa fa-tag" style="margin-right:2px;margin-top: 20px;">:</i>
+                    {% for tag in article.tags.all %}
+                    <a href="{% url 'blog_detail' tag.id %}">{{ tag.name }}, </a>
+                    {% empty %}
+                    <a href="http://{{ request.get_host }}{{ request.path }}">Not tag.</a>
+                    {% endfor %}
+                </p>
+                <p class="blog-post-more" style="margin-top: 20px;">In:
+                    <a href="http://{{ request.get_host }}{{ request.path }}">http://{{ request.get_host }}{{ request.path }}</a>
+                </p>
+              </p>
             </div>
-                {% include 'layout/sidebar.html' %}
+            <!-- <div class="decoration hide-if-mobile"></div> -->
+            
+            <div class="notification-page">
+            {% include "blog/duoshuo.html" %}
+            </div>
+          </div>
+          {% include 'layout/sidebar.html' %}
         </div>
         <div class="decoration"></div>
         {% include 'layout/footer.html' %}
