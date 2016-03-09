@@ -14,32 +14,41 @@
     {% load staticfiles %}
     {% load activelink %}
     <!-- OldBlog -->
-    <link href="{% static '/static/oldblog/css/pure-min.css' %}" type="text/css" rel="stylesheet"/>
-    <link href="{% static '/static/oldblog/css/blog_basic.min.css' %}" type="text/css" rel="stylesheet"/>
-    <link href="{% static '/static/oldblog/css/grids-responsive-min.css' %}" type="text/css" rel="stylesheet"/>
-    
-    <!-- Font Awesome -->
-    <link href="{% static '/static/oldblog/css/font-awesome.min.css' %}" type="text/css" rel="stylesheet"/>
-    
-    <!-- DIY Style -->
-    <link href="{% static '/static/oldblog/css/style.min.css' %}" type="text/css" rel="stylesheet"/>
-
+    <link href="{% static 'oldblog/css/pure-min.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'oldblog/css/blog_basic.min.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'oldblog/css/grids-responsive-min.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'oldblog/css/font-awesome.min.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'oldblog/css/style.min.css' %}" type="text/css" rel="stylesheet"/>
+    <link href="{% static 'prettify/css/hemisu-light.css' %}" rel="stylesheet" type="text/css" />
     <!-- Top -->
-    <link href="{% static '/static/oldblog/css/top.css' %}" type="text/css" rel="stylesheet"/>
-     
+    <link href="{% static 'oldblog/css/top.css' %}" type="text/css" rel="stylesheet"/>
+
+    <style type="text/css">
+    .post .post-content ol, .post .post-content ul {
+      padding: 0px;
+    }
+    pre {
+      background: #FFF;
+      font-size: inherit;
+      line-height: 0;
+    }
+    .post .post-content pre code {
+      border: 0px;
+    }
+    </style>
     <!-- inline styles related to this page -->
     {% block page_styles %}{% endblock %}
   </head>
-  <body>
+  <body onload="prettyPrint()">
     <div class="body_container">
       <div id="header">
         <div class="site-name">
           <h1 class="hidden">opdev.cn</h1><a id="logo" href="{% url 'oldblog_list' %}">op<span>dev</span>.cn</a>
         </div>
         <div id="nav-menu">
+          <a href="{% url 'blog_list' %}">新版</a>
           <a href="{% url 'oldblog_list' %}" class="{% ifactive  'oldblog_list' %}selected active current{% endifactive %}">博客</a>
           <a href="{% url 'oldblog_archive' %}" class="{% ifactive  'oldblog_archive' %}selected active current{% endifactive %}">归档</a>
-          <a href="#">关于</a>
           {% if user.is_authenticated %}
           <a href="#" class="">管理</a>
           {%else%}
@@ -74,12 +83,12 @@
       </div>
     </div>
     
+    <script type="text/javascript" src="{% static 'oldblog/js/jquery.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'prettify/js/prettify.js' %}"></script>
+
     <!-- Top -->
-    <script type="text/javascript" src="{% static '/static/oldblog/js/top.js' %}"></script>
-    
-    <!-- Jquery -->
-    <script type="text/javascript" src="{% static '/static/oldblog/js/jquery.min.js' %}"></script> 
-    
+    <script type="text/javascript" src="{% static 'oldblog/js/top.js' %}"></script>
+
     <!-- page js plugins -->
     {% block page_plugin_scripts %}{% endblock %}
     
