@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
-from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView
-from base.mixins.views import SimListView, SimDetailView, SidebarMixin
-from blog.models import Article
-
 from blog.views import BlogList, BlogDetail, BlogSearch, BlogCategory
 from blog.views import BlogArchive, BlogYearArchive, BlogMonthArchive
+
 
 class OldBlogList(BlogList):
     paginate_by = 7

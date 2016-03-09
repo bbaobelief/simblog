@@ -8,7 +8,6 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^oldblog/', include('oldblog.urls')),
     url(r'^charts/', include('charts.urls')),
-    # url(r'^oldblog/', include('blog.urls')),
 ]
 
 # Other base url

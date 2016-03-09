@@ -50,7 +50,7 @@ class BlogArchive(ArchiveIndexView, SidebarMixin):
     paginate_by = 20
     date_field = "publish_time"
     context_object_name = 'archive_list'
-    template_name = 'blog/blog_archive.html'
+    template_name = 'blog/archive_list.html'
 
 
 class BlogYearArchive(YearArchiveView, SidebarMixin):
@@ -60,7 +60,7 @@ class BlogYearArchive(YearArchiveView, SidebarMixin):
     make_object_list = True
     allow_future = True
     context_object_name = 'archive_list'
-    template_name = 'blog/year_archive.html'
+    template_name = 'blog/archive_year.html'
 
 
 class BlogMonthArchive(MonthArchiveView, SidebarMixin):
@@ -70,7 +70,7 @@ class BlogMonthArchive(MonthArchiveView, SidebarMixin):
     allow_future = True
     month_format = '%m'
     context_object_name = 'archive_list'
-    template_name = 'blog/month_archive.html'
+    template_name = 'blog/archive_month.html'
 
 
 class BlogCategory(SimListView):
