@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
             name='Category',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=20, verbose_name='\u5206\u7c7b', db_index=True)),
+                ('name', models.CharField(max_length=20, verbose_name='\u5206\u7c7b')),
                 ('sorting', models.IntegerField(default=10, verbose_name='\u6392\u5e8f', blank=True)),
             ],
             options={
@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
             name='Link',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=30, db_index=True)),
+                ('name', models.CharField(max_length=30)),
                 ('email', models.EmailField(max_length=254, blank=True)),
                 ('website', models.URLField()),
                 ('sorting', models.IntegerField(default=0, verbose_name='\u6392\u5e8f', blank=True)),
@@ -78,7 +78,7 @@ class Migration(migrations.Migration):
             name='Tag',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=20, db_index=True)),
+                ('tag_name', models.CharField(max_length=20)),
                 ('create_time', models.DateTimeField(auto_now_add=True)),
             ],
             options={

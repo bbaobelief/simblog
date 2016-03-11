@@ -58,10 +58,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class TagAdmin(admin.ModelAdmin):
     """docstring for TagAdmin"""
-    list_display = ('id', 'name', 'create_time')
+    list_display = ('id', 'tag_name', 'create_time')
     search_fields = ('name',)
     ordering = ('create_time',)          #对日期降序排列
-    list_editable = ('name', )  #列表页可编辑
+    list_editable = ('tag_name', )  #列表页可编辑
 
 class LinkAdmin(admin.ModelAdmin):
     """docstring for LinkAdmin"""
