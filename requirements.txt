@@ -1,2 +1,4 @@
-Django==1.8.8
+Django>=1.8.0,<1.9
+MySQL-python
+django-activelink
 Pillow==3.1.0
