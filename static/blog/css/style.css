@@ -859,46 +859,9 @@ body{
 	background-color: #3498db
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+hr {
+  border-color: #e0e0e0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  padding-top: 10px;
+}
