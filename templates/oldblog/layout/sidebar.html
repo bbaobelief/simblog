@@ -1,3 +1,4 @@
+          {% load staticfiles %}
           <div id="sidebar">
             <div class="widget">
               <form id="search" name="search_form" action="{% url 'oldblog_search' %}" method="post"> {% csrf_token %}
@@ -44,4 +45,12 @@
                 {% endfor %}
                 </ul>
             </div>
+            <div class="widget">
+              <div class="widget-title">我的宠物</div>
+              <object type="application/x-shockwave-flash" style="outline:none;" data="{% static 'oldblog/swf/hamster.swf' %}?" width="252" height="225">
+                <param name="movie" value="{% static 'oldblog/swf/hamster.swf' %}?"></param>
+                <param name="AllowScriptAccess" value="always"></param>
+                <param name="wmode" value="opaque"></param>
+              </object>
+            </div>	
           </div>
