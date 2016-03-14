@@ -860,8 +860,7 @@ body{
 }
 
 hr {
-  border-color: #e0e0e0;
-  border-top-width: 1px;
-  border-top-style: solid;
+  border: 0;
+  border-top: 1px solid #eee;
   padding-top: 10px;
 }
