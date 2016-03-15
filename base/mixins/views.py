@@ -14,14 +14,12 @@ class LoginRequiredMixin(object):
 
 
 class SidebarMixin(ContextMixin):
-    """
-    Public Sidebar
-    """
+    """Public Sidebar"""
     def get_context_data(self, **kwargs):
         context = super(SidebarMixin, self).get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         context['articles'] = Article.objects.filter(is_show='True').order_by("-publish_time")[0:10]
-        tag_count_list = Article.objects.values('tags').exclude(tags=None).annotate(tag_count=Count('tags')).order_by('-tag_count')
+        tag_count_list = Article.objects.values('tag').exclude(tag=None).annotate(tag_count=Count('tag')).order_by('-tag_count')
         context['tags'] = [[Tag.objects.get(pk=t['tags']),t['tag_count']] for t in tag_count_list]
         context['links'] = Link.objects.all()
         return context
