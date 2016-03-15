@@ -64,6 +64,7 @@ class Article(models.Model):
     source = models.CharField(u'来源', max_length=30, choices=SOURCE_CHOICE, default='original')
     source_link = models.URLField(blank=True)
     publish_time = models.DateTimeField(u'发布时间', auto_now_add=True)
+    update_time = models.DateTimeField(u'更新时间', auto_now=True)
 
     class Meta:
         verbose_name = u'文章'
