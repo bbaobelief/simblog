@@ -40,7 +40,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'activelink',
     'blog',
-    # 'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,7 +48,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -114,19 +112,3 @@ STATICFILES_DIRS = (
 
 #Login
 LOGIN_REDIRECT_URL='/blog/'
-
-#Debug_Toolbar
-# def show_toolbar(request):
-#     print request.user
-#     return True
-
-# DEBUG_TOOLBAR_CONFIG = {
-#     'SHOW_TOOLBAR_CALLBACK': 'simblog.settings.show_toolbar',
-#     'JQUERY_URL': '//code.jquery.com/jquery-1.11.2.min.js',
-# }
-
-# from django.conf import global_settings
-# TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
-#     'django.core.context_processors.request',
-# )
-# BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
