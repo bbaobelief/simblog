@@ -864,3 +864,13 @@ hr {
   border-top: 1px solid #eee;
   padding-top: 10px;
 }
+
+.blog-post-text h1,.blog-post-text h2,.blog-post-text h3,.blog-post-text h4,.blog-post-text h5 {
+  margin: 40px 0 20px;
+  color: #000000;
+  
+}
+
+.blog-post-text {
+  line-height: 1;
+}
