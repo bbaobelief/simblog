@@ -80,6 +80,7 @@ class Link(models.Model):
     name = models.CharField(max_length=30)
     email = models.EmailField(blank=True)
     website = models.URLField()
+    is_show = models.BooleanField(u'显示', default=True)
     order = models.IntegerField(u'顺序', default=0, blank=True)
 
     class Meta:
