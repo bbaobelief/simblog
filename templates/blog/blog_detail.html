@@ -21,7 +21,7 @@
                 <a href="http://{{ request.get_host }}/admin/blog/article/{{ article.id }}/" style="margin-left: 10px;color:inherit"><i class="fa fa-edit" style="margin-right:10px"></i>编辑</a>
                 {%endif%} 
               </p>
-              <p class="blog-post-text">
+              <div class="blog-post-text">
                 {{ article.content|safe }}                           
                 <div class="clear"></div>
                 <p class="blog-post-date">
@@ -35,7 +35,7 @@
                 <p class="blog-post-more" style="margin-top: 20px;">In:
                     <a href="http://{{ request.get_host }}{{ request.path }}">http://{{ request.get_host }}{{ request.path }}</a>
                 </p>
-              </p>
+              </div>
             </div>
             <!-- <div class="decoration hide-if-mobile"></div> -->
             
