@@ -10,9 +10,10 @@ class BlogList(SimListView):
     template_name = 'blog/blog_list.html'
     context_object_name = 'article'
 
-    def get_context_data(self, **kwargs):
-        context = super(BlogList, self).get_context_data(**kwargs)
-        return context
+    def get_queryset(self):
+        queryset = super(BlogList, self).get_queryset()
+        queryset = queryset.filter(is_show=False)
+        return queryset
 
 
 class BlogDetail(SimDetailView):
@@ -46,8 +47,8 @@ class BlogSearch(SimListView):
 class BlogArchive(ArchiveIndexView, SidebarMixin):
     """归档"""
     model = Article
-    queryset = Article.objects.all()
-    paginate_by = 20
+    queryset = Article.objects.all().filter(is_show=False)
+    # paginate_by = 20
     date_field = "publish_time"
     context_object_name = 'archive_list'
     template_name = 'blog/archive_list.html'
