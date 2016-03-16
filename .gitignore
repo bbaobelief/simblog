@@ -17,7 +17,7 @@ db.sqlite3
 *.log
 
 # media
-media/
+uploads/
 
 # Product setttings
 product_settings.py
