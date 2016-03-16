@@ -6,7 +6,7 @@ from .models import Article
 
 class BlogList(SimListView):
     model = Article
-    paginate_by = 7
+    paginate_by = 10
     template_name = 'blog/blog_list.html'
     context_object_name = 'article'
 

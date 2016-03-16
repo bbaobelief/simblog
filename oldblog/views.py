@@ -4,7 +4,7 @@ from blog.views import BlogArchive, BlogYearArchive, BlogMonthArchive
 
 
 class OldBlogList(BlogList):
-    paginate_by = 7
+    paginate_by = 5
     template_name = 'oldblog/blog_list.html'
     context_object_name = 'article'
 
