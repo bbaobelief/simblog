@@ -57,7 +57,7 @@ class Article(models.Model):
     content = models.TextField(u'内容')
     counts = models.IntegerField(u'点击率', default=0, blank=True)
     is_top = models.BooleanField(u'置顶', default=False)
-    is_show = models.BooleanField(u'加密', default=False)
+    is_show = models.BooleanField(u'显示', default=True)
     author = models.ForeignKey(Author, default=1, related_name='author_article', verbose_name=u'作者')
     category = models.ForeignKey(Category, default=1, related_name='category_article', verbose_name=u'分类')
     tag = models.ManyToManyField(Tag, blank=True, related_name='tag_article', verbose_name=u'标签')
