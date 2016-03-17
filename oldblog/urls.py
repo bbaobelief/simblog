@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.conf.urls import url
-from .views import OldBlogList, OldBlogDetail, OldBlogSearch, OldBlogCategory
+from .views import OldBlogList, OldBlogDetail, OldBlogSearch, OldBlogCategory, OldBlogTag
 from .views import OldBlogArchive, OldBlogYearArchive, OldBlogMonthArchive
 
 urlpatterns = [
@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^archive/(?P<year>\d{4})/$', OldBlogYearArchive.as_view(), name='oldblog_archive_year'),
     url(r'^archive/(?P<year>\d{4})/(?P<month>\d+)/$', OldBlogMonthArchive.as_view(), name='oldblog_archive_month'),
     url(r'^category/(?P<pk>\d+)/$', OldBlogCategory.as_view(), name='oldblog_category'),
+    url(r'^tag/(?P<pk>\d+)/$', OldBlogTag.as_view(), name='oldblog_tag'),
 
     # Search
     url('^search/$', OldBlogSearch.as_view(), name='oldblog_search'),

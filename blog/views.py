@@ -12,7 +12,7 @@ class BlogList(SimListView):
 
     def get_queryset(self):
         queryset = super(BlogList, self).get_queryset()
-        queryset = queryset.filter(is_show=False)
+        queryset = queryset.filter(is_show=True)
         return queryset
 
 
@@ -47,7 +47,7 @@ class BlogSearch(SimListView):
 class BlogArchive(ArchiveIndexView, SidebarMixin):
     """归档"""
     model = Article
-    queryset = Article.objects.all().filter(is_show=False)
+    queryset = Article.objects.filter(is_show=True)
     # paginate_by = 20
     date_field = "publish_time"
     context_object_name = 'archive_list'
@@ -56,7 +56,7 @@ class BlogArchive(ArchiveIndexView, SidebarMixin):
 
 class BlogYearArchive(YearArchiveView, SidebarMixin):
     """按年归档"""
-    queryset = Article.objects.filter(is_show='True').order_by("-publish_time")
+    queryset = Article.objects.filter(is_show=True).order_by("-publish_time")
     date_field = "publish_time"
     make_object_list = True
     allow_future = True
@@ -66,7 +66,7 @@ class BlogYearArchive(YearArchiveView, SidebarMixin):
 
 class BlogMonthArchive(MonthArchiveView, SidebarMixin):
     """按月归档"""
-    queryset = Article.objects.filter(is_show='True').order_by("-publish_time")
+    queryset = Article.objects.filter(is_show=True).order_by("-publish_time")
     date_field = "publish_time"
     allow_future = True
     month_format = '%m'
@@ -91,5 +91,5 @@ class BlogTag(SimListView):
 
     def get_queryset(self):
         self.pk = self.kwargs['pk']
-        queryset = Article.objects.filter(tag=self.pk).filter(is_show=False).order_by("-publish_time")
+        queryset = Article.objects.filter(tag=self.pk).filter(is_show=True).order_by("-publish_time")
         return queryset

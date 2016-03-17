@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from blog.views import BlogList, BlogDetail, BlogSearch, BlogCategory
+from blog.views import BlogList, BlogDetail, BlogSearch, BlogCategory, BlogTag
 from blog.views import BlogArchive, BlogYearArchive, BlogMonthArchive
 
 
@@ -31,4 +31,8 @@ class OldBlogMonthArchive(BlogMonthArchive):
 
 
 class OldBlogCategory(BlogCategory):
+    template_name = 'oldblog/blog_list.html'
+
+
+class OldBlogTag(BlogTag):
     template_name = 'oldblog/blog_list.html'
