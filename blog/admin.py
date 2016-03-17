@@ -11,9 +11,9 @@ class AuthorAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'category', 'is_show', 'author', 'publish_time', 'is_top')
     list_display_links = ('title', 'id')
-    list_filter = ('publish_time')
-    ordering = ('-publish_time')
-    filter_horizontal = ('tag')
+    list_filter = ('publish_time',)
+    ordering = ('-publish_time',)
+    filter_horizontal = ('tag',)
     list_editable = ('is_show', 'category')
 
     class Media:
@@ -41,22 +41,22 @@ class ArticleAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'order')
-    search_fields = ('name')
-    ordering = ('order')
+    search_fields = ('name',)
+    ordering = ('order',)
     list_editable = ('name', 'order')
 
 
 class TagAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'create_time')
-    search_fields = ('name')
-    ordering = ('create_time')
-    list_editable = ('name')
+    search_fields = ('name',)
+    ordering = ('create_time',)
+    list_editable = ('name',)
 
 
 class LinkAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'email', 'website')
-    search_fields = ('name')
-    ordering = ('name')
+    search_fields = ('name',)
+    ordering = ('name',)
     list_editable = ('name', 'email', 'website')
 
 admin.site.register(Author, AuthorAdmin)
