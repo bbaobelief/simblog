@@ -16,6 +16,11 @@ class BlogList(SimListView):
         queryset = queryset.filter(is_show=True)
         return queryset
 
+    def get_context_data(self, **kwargs):
+        context = super(BlogList, self).get_context_data(**kwargs)
+        context['tops'] = Article.objects.filter(is_top=True)
+        return context
+
 
 class BlogDetail(SimDetailView):
     model = Article
