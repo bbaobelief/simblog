@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView
+from django.core.exceptions import PermissionDenied
 from base.mixins.views import SimListView, SimDetailView, SidebarMixin
-from .models import Article, Tag
+from .models import Article
 
 
 class BlogList(SimListView):
@@ -20,11 +21,10 @@ class BlogDetail(SimDetailView):
     model = Article
     template_name = 'blog/blog_detail.html'
 
-    def get_queryset(self):
-        queryset = super(BlogDetail, self).get_queryset()
-        if not self.is_show:
+    def dispatch(self, request, *args, **kwargs):
+        if not self.get_object().is_show:
             raise PermissionDenied
-        return queryset
+        return super(BlogDetail, self).dispatch(request, *args, **kwargs)
 
 
 class BlogSearch(SimListView):
