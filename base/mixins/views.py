@@ -19,8 +19,8 @@ class SidebarMixin(ContextMixin):
         context = super(SidebarMixin, self).get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
         context['articles'] = Article.objects.filter(is_show='True').order_by("-publish_time")[0:10]
-        tag_count_list = Article.objects.values('tag').exclude(tag=None).annotate(tag_count=Count('tag')).order_by('-tag_count')
-        context['tags'] = [[Tag.objects.get(pk=t['tag']),t['tag_count']] for t in tag_count_list]
+        tag_count = Article.objects.values('tag').exclude(tag=None).annotate(count=Count('tag')).order_by('-count')
+        context['tags'] = [[Tag.objects.get(pk=t['tag']),t['count']] for t in tag_count]
         context['links'] = Link.objects.all()
         return context
 

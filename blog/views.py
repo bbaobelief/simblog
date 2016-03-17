@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView
 from base.mixins.views import SimListView, SimDetailView, SidebarMixin
-from .models import Article
+from .models import Article, Tag
 
 
 class BlogList(SimListView):
@@ -83,6 +83,13 @@ class BlogCategory(SimListView):
         self.pk = self.kwargs['pk']
         return Article.objects.filter(category=self.pk)
 
-    def get_context_data(self, **kwargs):
-        context = super(BlogCategory, self).get_context_data(**kwargs)
-        return context
+
+class BlogTag(SimListView):
+    model = Article
+    template_name = 'blog/blog_list.html'
+    context_object_name = 'article'
+
+    def get_queryset(self):
+        self.pk = self.kwargs['pk']
+        queryset = Article.objects.filter(tag=self.pk).filter(is_show=False).order_by("-publish_time")
+        return queryset
