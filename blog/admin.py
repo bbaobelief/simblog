@@ -2,29 +2,19 @@
 from django.contrib import admin
 from models import Article, Author, Tag, Category, Link
 
+
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'website')
     search_fields = ('name',)
 
-class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('id','title','category','is_show','author','publish_time','is_top') #指定要显示的字段
-    list_display_links = ('title', 'id', ) #指定可以点击的字段
-    list_filter = ('publish_time',)        #指定列表过滤器，右边将会出现一个快捷的日期过滤选项，
-    # date_hierarchy = 'publish_time'        #日期型字段进行层次划分
-    ordering = ('-publish_time',)          #对日期降序排列
-    filter_horizontal = ('tag',)          #水平过滤器
-    list_editable = ('is_show','category')  #列表页可编辑
 
-    # 分组表单
-    # fieldsets = (
-    #     (u'基本信息', {
-    #         'fields': ('title', 'author', 'content', 'category', )
-    #     }),
-    #     (u'高级设置', {
-    #         'classes': ('collapse',),
-    #         'fields': ('is_top', 'counts',)
-    #     }),
-    # )
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'category', 'is_show', 'author', 'publish_time', 'is_top')
+    list_display_links = ('title', 'id')
+    list_filter = ('publish_time')
+    ordering = ('-publish_time')
+    filter_horizontal = ('tag')
+    list_editable = ('is_show', 'category')
 
     class Media:
         css = {
@@ -35,6 +25,7 @@ class ArticleAdmin(admin.ModelAdmin):
             ),
         }
         js = (
+            '/static/blog/js/jquery.js',
             '/static/simditor/js/module.js',
             '/static/simditor/js/uploader.js',
             '/static/simditor/js/hotkeys.js',
@@ -47,26 +38,29 @@ class ArticleAdmin(admin.ModelAdmin):
             '/static/simditor/config.js',
         )
 
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'order')
-    search_fields = ('name',)
-    ordering = ('order',)          #对日期降序排列
-    list_editable = ('name', 'order')  #列表页可编辑
+    search_fields = ('name')
+    ordering = ('order')
+    list_editable = ('name', 'order')
+
 
 class TagAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'create_time')
-    search_fields = ('name',)
-    ordering = ('create_time',)          #对日期降序排列
-    list_editable = ('name', )  #列表页可编辑
+    search_fields = ('name')
+    ordering = ('create_time')
+    list_editable = ('name')
+
 
 class LinkAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'email', 'website')
-    search_fields = ('name',)
-    ordering = ('name',)          #对日期降序排列
-    list_editable = ('name', 'email', 'website', )  #列表页可编辑
+    search_fields = ('name')
+    ordering = ('name')
+    list_editable = ('name', 'email', 'website')
 
-admin.site.register(Author,AuthorAdmin)
+admin.site.register(Author, AuthorAdmin)
 admin.site.register(Article, ArticleAdmin)
-admin.site.register(Category,CategoryAdmin)
-admin.site.register(Tag,TagAdmin)
-admin.site.register(Link,LinkAdmin)
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Tag, TagAdmin)
+admin.site.register(Link, LinkAdmin)
