@@ -20,9 +20,11 @@ class BlogDetail(SimDetailView):
     model = Article
     template_name = 'blog/blog_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(BlogDetail, self).get_context_data(**kwargs)
-        return context
+    def get_queryset(self):
+        queryset = super(BlogDetail, self).get_queryset()
+        if not self.is_show:
+            raise PermissionDenied
+        return queryset
 
 
 class BlogSearch(SimListView):
