@@ -18,7 +18,7 @@
               
               {% for blog in tops %}
               <div class="tab-content tab-content-{{ blog.id }}" style="background-color: rgba(238, 238, 238, 0);{% if forloop.first %}display: block;{% endif %}">
-                <img src="/static/blog/img/pictures/1s.jpg" class="float-left" width="70" alt="img">
+                <!-- <img src="/static/blog/img/pictures/1s.jpg" class="float-left" width="70" alt="img"> -->
                   {{ blog.content|safe|truncatechars_html:130 }}
               </div>
               {% endfor %}
