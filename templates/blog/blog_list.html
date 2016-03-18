@@ -9,15 +9,15 @@
               <div class="tabs">
               {% for blog in tops %}
                 {% if forloop.first %}
-                <a href="#" class="tab-but tab-but-{{ blog.id }} tab-active">{{ blog.title }}</a>
+                <a href="#" class="tab-but tab-but-{{ forloop.counter }} tab-active">{{ blog.title }}</a>
                 {% else %}
-                <a href="#" class="tab-but tab-but-{{ blog.id }}">{{ blog.title }}</a>
+                <a href="#" class="tab-but tab-but-{{ forloop.counter }}">{{ blog.title }}</a>
                 {% endif %}
               {% endfor %} 
               </div>
               
               {% for blog in tops %}
-              <div class="tab-content tab-content-{{ blog.id }}" style="background-color: rgba(238, 238, 238, 0);{% if forloop.first %}display: block;{% endif %}">
+              <div class="tab-content tab-content-{{ forloop.counter }}" style="background-color: rgba(238, 238, 238, 0);{% if forloop.first %}display: block;{% endif %}">
                 <!-- <img src="/static/blog/img/pictures/1s.jpg" class="float-left" width="70" alt="img"> -->
                   {{ blog.content|safe|truncatechars_html:130 }}
               </div>
