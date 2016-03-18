@@ -15,7 +15,7 @@ class ImageForm(forms.Form):
 
 class ImageUpload(JSONResponseMixin, FormView):
     form_class = ImageForm
-    template_name = 'blog/create.html'
+    template_name = 'blog/blog_list.html'
     upload_root = getattr(settings, 'MEDIA_ROOT', '/upload/')
 
     def upload_dir(self):
