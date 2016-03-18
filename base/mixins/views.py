@@ -2,6 +2,7 @@
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import ContextMixin
+from django.http import JsonResponse
 from django.db.models import Count
 from blog.models import Category, Article, Tag, Link
 
@@ -20,7 +21,7 @@ class SidebarMixin(ContextMixin):
         context['categories'] = Category.objects.all()
         context['articles'] = Article.objects.filter(is_show=True).order_by("-publish_time")[0:10]
         tag_count = Article.objects.values('tag').exclude(tag=None).annotate(count=Count('tag')).order_by('-count')
-        context['tags'] = [[Tag.objects.get(pk=t['tag']),t['count']] for t in tag_count]
+        context['tags'] = [[Tag.objects.get(pk=t['tag']), t['count']] for t in tag_count]
         context['links'] = Link.objects.all()
         return context
 
@@ -36,4 +37,15 @@ class SimListView(ListView, SidebarMixin):
 class SimDetailView(DetailView, SidebarMixin):
     def get_context_data(self, **kwargs):
         context = super(SimDetailView, self).get_context_data(**kwargs)
+        return context
+
+
+class JSONResponseMixin(object):
+    def render_to_json_response(self, context, **response_kwargs):
+        return JsonResponse(
+            self.get_data(context),
+            **response_kwargs
+        )
+
+    def get_data(self, context):
         return context

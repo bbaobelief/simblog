@@ -25,7 +25,7 @@ class ArticleAdmin(admin.ModelAdmin):
             ),
         }
         js = (
-            '/static/blog/js/jquery.js',
+            '/static/simditor/js/jquery.min.js',
             '/static/simditor/js/module.js',
             '/static/simditor/js/uploader.js',
             '/static/simditor/js/hotkeys.js',

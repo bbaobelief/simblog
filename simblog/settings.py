@@ -110,4 +110,8 @@ STATICFILES_DIRS = (
 )
 
 #Login
-LOGIN_REDIRECT_URL='/blog/'
+LOGIN_REDIRECT_URL = '/blog/'
+
+# Media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload/')
+MEDIA_URL='/upload/'

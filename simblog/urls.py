@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+from base.upload import *
 from django.conf.urls import include, url
 from django.contrib import admin
+from base.upload import ImageUpload
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -8,6 +10,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^oldblog/', include('oldblog.urls')),
     url(r'^charts/', include('charts.urls')),
+    url(r'^upload/$', ImageUpload.as_view(), name='image_upload'),
 ]
 
 # Other base url
