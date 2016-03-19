@@ -20,6 +20,11 @@
               <div class="tab-content tab-content-{{ forloop.counter }}" style="background-color: rgba(238, 238, 238, 0);{% if forloop.first %}display: block;{% endif %}">
                 <!-- <img src="/static/blog/img/pictures/1s.jpg" class="float-left" width="70" alt="img"> -->
                   {{ blog.content|safe|truncatechars_html:130 }}
+              <p class="blog-post-date" style="margin-top: 4px;">
+                  <i class="fa fa-calendar"></i>{{ blog.publish_time|date:"d/m/Y" }}
+                  <a href="{% url 'blog_category' blog.category.pk %}" style="margin-left: 10px;color:inherit" class="hide-if-mobile"><i class="fa fa-book"></i>{{ blog.category|capfirst }}</a>
+              </p>
+              <p class="blog-post-more" style="margin-top: 4px;"><a href="{% url 'blog_detail' blog.id %}">Read More<i class="fa fa-angle-right"></i></a></p>
               </div>
               {% endfor %}
             </div> 
