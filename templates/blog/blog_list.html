@@ -5,7 +5,7 @@
         <div class="content">
           <div class="blog-posts">
             {% if tops %}
-            <div class="blog-post last-column">
+            <div class="blog-post last-column hide-if-mobile">
               <div class="tabs">
               {% for blog in tops %}
                 {% if forloop.first %}
@@ -23,7 +23,7 @@
               </div>
               {% endfor %}
             </div> 
-            <div class="decoration"></div>
+            <div class="decoration hide-if-mobile"></div>
             {% endif %}
 
             {% for blog in article %}
