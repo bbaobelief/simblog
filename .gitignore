@@ -13,10 +13,10 @@
 # sqlite3 db
 db.sqlite3
 
-# log
-*.log
+# Log
+logs/
 
-# media
+# Media
 upload/
 
 # Product setttings
