@@ -42,7 +42,7 @@ class BlogSearch(SimListView):
 
     def get_queryset(self):
         search = self.request.POST.get('title', None)
-        queryset = super(BlogSearch, self).get_queryset().filter(title__icontains=search)
+        queryset = super(BlogSearch, self).get_queryset().filter(title__icontains=search, is_show=True)
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -88,7 +88,7 @@ class BlogCategory(SimListView):
 
     def get_queryset(self):
         self.pk = self.kwargs['pk']
-        return Article.objects.filter(category=self.pk)
+        return Article.objects.filter(category=self.pk, is_show=True)
 
 
 class BlogTag(SimListView):
