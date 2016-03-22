@@ -18,6 +18,7 @@ logs/
 
 # Media
 upload/
+uploads/
 
 # Product setttings
 product_settings.py
