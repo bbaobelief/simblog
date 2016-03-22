@@ -15,7 +15,7 @@
               <p>
                 <i class="fa fa-calendar" style="margin-right:10px"></i>{{ article.publish_time|date:"Y-m-d H:i:s" }}
                 <a href="{% url 'blog_category' article.category.pk %}" style="margin-left: 10px;color:inherit"><i class="fa fa-book" style="margin-right:10px"></i>{{ article.category|capfirst }}</a>
-                <span class="hide-if-mobile"><i class="fa fa-eye" style="margin:0px 10px 0px 10px"></i>25℃</span>
+                <span class="hide-if-mobile"><i class="fa fa-eye" style="margin:0px 10px 0px 10px"></i>{{ article.counts }}℃</span>
                 <span class="hide-if-mobile"><i class="fa fa-user" style="margin:0px 10px 0px 10px"></i>{{ article.author.name }}</span>
                 {% if user.is_superuser %}
                 <a href="http://{{ request.get_host }}/admin/blog/article/{{ article.id }}/" style="margin-left: 10px;color:inherit" class="hide-if-mobile"><i class="fa fa-edit" style="margin-right:10px"></i>编辑</a>
