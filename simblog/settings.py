@@ -115,3 +115,15 @@ LOGIN_REDIRECT_URL = '/blog/'
 # Media
 MEDIA_ROOT = os.path.join(BASE_DIR, 'upload/')
 MEDIA_URL='/upload/'
+
+# Cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/tmp/django_cache',
+        'TIMEOUT': 60,
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}
