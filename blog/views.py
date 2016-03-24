@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView
 from django.core.exceptions import PermissionDenied
-from base.mixins.views import SimListView, SimDetailView, SidebarMixin
+from base.mixins.views import SimListView, SimDetailView, SidebarMixin, CacheMixin
 from .models import Article
 
 

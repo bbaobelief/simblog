@@ -2,6 +2,7 @@
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import ContextMixin
+from django.views.decorators.cache import cache_page
 from django.http import JsonResponse
 from django.db.models import Count
 from blog.models import Category, Article, Tag, Link
@@ -14,7 +15,17 @@ class LoginRequiredMixin(object):
         return login_required(view)
 
 
-class SidebarMixin(ContextMixin):
+class CacheMixin(object):
+    cache_timeout = 60
+
+    def get_cache_timeout(self):
+        return self.cache_timeout
+
+    def dispatch(self, *args, **kwargs):
+        return cache_page(self.get_cache_timeout())(super(CacheMixin, self).dispatch)(*args, **kwargs)
+
+
+class SidebarMixin(CacheMixin, ContextMixin):
     """Public Sidebar"""
     def get_context_data(self, **kwargs):
         context = super(SidebarMixin, self).get_context_data(**kwargs)
