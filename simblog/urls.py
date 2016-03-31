@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^oldblog/', include('oldblog.urls')),
     url(r'^charts/', include('charts.urls')),
+    url(r'^chat/', include('chat.urls')),
     url(r'^upload/$', ImageUpload.as_view(), name='image_upload'),
 ]
 

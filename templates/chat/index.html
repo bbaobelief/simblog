@@ -1,0 +1,91 @@
+{% extends "layout/base.html" %}
+{% block title %} 博客 {% endblock %}
+{% block content %}
+        {% load staticfiles %}
+        <div class="content">
+            <div class="header-clear"></div>
+            <a class="back-button" href="/"><i class="fa fa-chevron-left"></i> Back</a>
+            
+             <div class="container no-bottom">
+                <h3>Chat</h3>
+                <p>聊天室，使用websocket编写。</p>
+            </div>
+            <div class="decoration"></div>
+            <div class="one-half-responsive">
+              <em class="speach-left-title">John Doe says:</em>
+              <p class="speach-left">This is just an awesome bubble! It's quite cute isn't it?</p>
+
+              <div class="clear"></div>
+
+              <em class="speach-right-title">Jane Doe replied:</em>
+              <p class="speach-right blue-bubble">Yeap! It's awesome isn't it and it's not that hard to use! And they act like bubbles, only expanding to 75% of width!</p>
+
+              <div class="clear"></div>  
+
+              <em class="speach-left-title">John Doe says:</em>
+              <p class="speach-left">Awesome stuff!</p> 
+
+              <div class="clear"></div>
+
+              <em class="speach-right-title">Jane Doe replied:</em>
+              <p class="speach-right blue-bubble">Yeap! It's awesome isn't it and it's not that hard to use! And they act like bubbles, only expanding to 75% of width!</p>
+            </div> 
+
+<!--             <div class="decoration hide-if-responsive"></div>
+            <div class="one-half-responsive last-column">
+                <em class="speach-left-title">John Doe says:</em>
+                <p class="speach-left">This is just an awesome bubble! It's quite cute isn't it?</p>
+
+                <div class="clear"></div>
+
+                <em class="speach-right-title">Jane Doe replied:</em>
+                <p class="speach-right green-bubble">Yeap! It's awesome isn't it and it's not that hard to use! And they act like bubbles, only expanding to 75% of width!</p>
+
+                <div class="clear"></div>  
+            </div>  -->
+            <div class="decoration hide-if-responsive"></div>
+            <div class="one-half-responsive last-column">
+                <h4>Send us an email!</h4>
+                <p>Use the form to send us a message, it's AJAX and PHP powered and it's easy to use!</p>
+                <div class="container no-bottom">
+                    <div class="contact-form no-bottom"> 
+                        <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
+                            <div class="big-notification green-notification">
+                                <h3 class="uppercase">Message Sent </h3>
+                                <a href="#" class="close-big-notification">x</a>
+                                <p>Your message has been successfuly sent. Please allow up to 48 hours for a reply! Thank you!</p>
+                            </div>
+                        </div>
+
+                        <form action="php/contact.php" method="post" class="contactForm" id="contactForm">
+                            <fieldset>
+                                <div class="formValidationError" id="contactNameFieldError">
+                                    <div class="static-notification-red tap-dismiss-notification">
+                                        <p class="center-text uppercase">Name is required!</p>
+                                    </div>
+                                </div>
+                                <div class="formValidationError" id="contactMessageTextareaError">
+                                    <div class="static-notification-red tap-dismiss-notification">
+                                        <p class="center-text uppercase">Message field is empty!</p>
+                                    </div>
+                                </div>   
+                                <div class="formFieldWrap">
+                                    <label class="field-title contactNameField" for="contactNameField">Name:<span>(required)</span></label>
+                                    <input type="text" name="contactNameField" value="" class="contactField requiredField" id="contactNameField"/>
+                                </div>
+                                <div class="formTextareaWrap">
+                                    <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Message: <span>(required)</span></label>
+                                    <textarea name="contactMessageTextarea" class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
+                                </div>
+                                <div class="formSubmitButtonErrorsWrap">
+                                    <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="SUBMIT" data-formId="contactForm"/>
+                                </div>
+                            </fieldset>
+                        </form>       
+                    </div>
+                </div>
+            </div>
+            <div class="decoration"></div> 
+        </div>
+        {% include 'layout/footer.html' %}
+{% endblock %}
