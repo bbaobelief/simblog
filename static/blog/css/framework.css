@@ -467,7 +467,7 @@ a{
 	position:absolute;
 	left:50%; 
 	top:50%; 
-	background-image:url(/static/blog/img/status.gif); 
+	background-image:url(../img/status.gif); 
 	background-size:64px 64px;
 	background-repeat:no-repeat;
 	background-position:center;
@@ -747,171 +747,171 @@ a{
 }
 
 .address-list{
-	background-image:url(/static/blog/img/lists/address_48.png);
+	background-image:url(../img/lists/address_48.png);
 }
 
 .block-list{
-	background-image:url(/static/blog/img/lists/block_48.png);
+	background-image:url(../img/lists/block_48.png);
 }
 
 .bookmark-list{
-	background-image:url(/static/blog/img/lists/bookmark_48.png);
+	background-image:url(../img/lists/bookmark_48.png);
 }
 
 .briefcase-list{
-	background-image:url(/static/blog/img/lists/briefcase_48.png);
+	background-image:url(../img/lists/briefcase_48.png);
 }
 
 .bubble-list{
-	background-image:url(/static/blog/img/lists/bubble_48.png);
+	background-image:url(../img/lists/bubble_48.png);
 }
 
 .buy-list{
-	background-image:url(/static/blog/img/lists/buy_48.png);
+	background-image:url(../img/lists/buy_48.png);
 }
 
 .calendar-list{
-	background-image:url(/static/blog/img/lists/calendar_48.png);
+	background-image:url(../img/lists/calendar_48.png);
 }
 
 .clipboard-list{
-	background-image:url(/static/blog/img/lists/clipboard_48.png);
+	background-image:url(../img/lists/clipboard_48.png);
 }
 
 .clock-list{
-	background-image:url(/static/blog/img/lists/clock_48.png);
+	background-image:url(../img/lists/clock_48.png);
 }
 
 .delete-list{
-	background-image:url(/static/blog/img/lists/delete_48.png);
+	background-image:url(../img/lists/delete_48.png);
 }
 
 .diagram-list{
-	background-image:url(/static/blog/img/lists/diagram_48.png);
+	background-image:url(../img/lists/diagram_48.png);
 }
 
 .document-list{
-	background-image:url(/static/blog/img/lists/document_48.png);
+	background-image:url(../img/lists/document_48.png);
 }
 
 .down-list{
-	background-image:url(/static/blog/img/lists/down_48.png);
+	background-image:url(../img/lists/down_48.png);
 }
 
 .flag-list{
-	background-image:url(/static/blog/img/lists/flag_48.png);
+	background-image:url(../img/lists/flag_48.png);
 }
 
 .folder-list{
-	background-image:url(/static/blog/img/lists/folder_48.png);
+	background-image:url(../img/lists/folder_48.png);
 }
 
 .gear-list{
-	background-image:url(/static/blog/img/lists/gear_48.png);
+	background-image:url(../img/lists/gear_48.png);
 }
 
 .globe-list{
-	background-image:url(/static/blog/img/lists/globe_48.png);
+	background-image:url(../img/lists/globe_48.png);
 }
 
 .heart-list{
-	background-image:url(/static/blog/img/lists/heart_48.png);
+	background-image:url(../img/lists/heart_48.png);
 }
 
 .help-list{
-	background-image:url(/static/blog/img/lists/help_48.png);
+	background-image:url(../img/lists/help_48.png);
 }
 
 .home-list{
-	background-image:url(/static/blog/img/lists/home_48.png);
+	background-image:url(../img/lists/home_48.png);
 }
 
 .info-list{
-	background-image:url(/static/blog/img/lists/info_48.png);
+	background-image:url(../img/lists/info_48.png);
 }
 
 .key-list{
-	background-image:url(/static/blog/img/lists/key_48.png);
+	background-image:url(../img/lists/key_48.png);
 }
 
 .label-list{
-	background-image:url(/static/blog/img/lists/label_48.png);
+	background-image:url(../img/lists/label_48.png);
 }
 
 .left-list{
-	background-image:url(/static/blog/img/lists/left_48.png);
+	background-image:url(../img/lists/left_48.png);
 }
 
 .letter-list{
-	background-image:url(/static/blog/img/lists/letter_48.png);
+	background-image:url(../img/lists/letter_48.png);
 }
 
 .monitor-list{
-	background-image:url(/static/blog/img/lists/monitor_48.png);
+	background-image:url(../img/lists/monitor_48.png);
 }
 
 .pencil-list{
-	background-image:url(/static/blog/img/lists/pencil_48.png);
+	background-image:url(../img/lists/pencil_48.png);
 }
 
 .plus-list{
-	background-image:url(/static/blog/img/lists/plus_48.png);
+	background-image:url(../img/lists/plus_48.png);
 }
 
 .present-list{
-	background-image:url(/static/blog/img/lists/present_48.png);
+	background-image:url(../img/lists/present_48.png);
 }
 
 .print-list{
-	background-image:url(/static/blog/img/lists/print_48.png);
+	background-image:url(../img/lists/print_48.png);
 }
 
 .right-list{
-	background-image:url(/static/blog/img/lists/right_48.png);
+	background-image:url(../img/lists/right_48.png);
 }
 
 .save-list{
-	background-image:url(/static/blog/img/lists/save_48.png);
+	background-image:url(../img/lists/save_48.png);
 }
 
 .search-list{
-	background-image:url(/static/blog/img/lists/search_48.png);
+	background-image:url(../img/lists/search_48.png);
 }
 
 .shield-list{
-	background-image:url(/static/blog/img/lists/shield_48.png);
+	background-image:url(../img/lists/shield_48.png);
 }
 
 .statistics-list{
-	background-image:url(/static/blog/img/lists/statistics_48.png);
+	background-image:url(../img/lists/statistics_48.png);
 }
 
 .stop-list{
-	background-image:url(/static/blog/img/lists/stop_48.png);
+	background-image:url(../img/lists/stop_48.png);
 }
 
 .tick-list{
-	background-image:url(/static/blog/img/lists/tick_48.png);
+	background-image:url(../img/lists/tick_48.png);
 }
 
 .trash-list{
-	background-image:url(/static/blog/img/lists/trash_48.png);
+	background-image:url(../img/lists/trash_48.png);
 }
 
 .up-list{
-	background-image:url(/static/blog/img/lists/up_48.png);
+	background-image:url(../img/lists/up_48.png);
 }
 
 .user-list{
-	background-image:url(/static/blog/img/lists/user_48.png);
+	background-image:url(../img/lists/user_48.png);
 }
 
 .wallet-list{
-	background-image:url(/static/blog/img/lists/wallet_48.png);
+	background-image:url(../img/lists/wallet_48.png);
 }
 	
 .warning-list{
-	background-image:url(/static/blog/img/lists/warning_48.png);
+	background-image:url(../img/lists/warning_48.png);
 }
 
 /*	8. Table  */ 
@@ -1149,7 +1149,7 @@ table tr:hover td{
 /*	11. Radio and Checkboxe */ 
 
 .checkbox-one{
-	background-image:url(/static/blog/img/ui/checkbox1.png);
+	background-image:url(../img/ui/checkbox1.png);
 	background-size:16px 18px;
 	background-repeat:no-repeat;
 	padding-left:30px;
@@ -1158,11 +1158,11 @@ table tr:hover td{
 }
 
 .checkbox-one-checked{
-	background-image:url(/static/blog/img/ui/checkbox1c.png);
+	background-image:url(../img/ui/checkbox1c.png);
 }
 
 .checkbox-two{
-	background-image:url(/static/blog/img/ui/checkbox2.png);
+	background-image:url(../img/ui/checkbox2.png);
 	background-size:16px 18px;
 	background-repeat:no-repeat;
 	padding-left:30px;
@@ -1171,11 +1171,11 @@ table tr:hover td{
 }
 
 .checkbox-two-checked{
-	background-image:url(/static/blog/img/ui/checkbox2c.png);
+	background-image:url(../img/ui/checkbox2c.png);
 }
 
 .checkbox-three{
-	background-image:url(/static/blog/img/ui/checkbox3.png);
+	background-image:url(../img/ui/checkbox3.png);
 	background-size:16px 16px;
 	background-repeat:no-repeat;
 	padding-left:30px;
@@ -1184,11 +1184,11 @@ table tr:hover td{
 }
 
 .checkbox-three-checked{
-	background-image:url(/static/blog/img/ui/checkbox3c.png);
+	background-image:url(../img/ui/checkbox3c.png);
 }
 
 .radio-one{
-	background-image:url(/static/blog/img/ui/radio1.png);
+	background-image:url(../img/ui/radio1.png);
 	background-size:16px 18px;
 	background-repeat:no-repeat;
 	padding-left:30px;
@@ -1197,11 +1197,11 @@ table tr:hover td{
 }
 
 .radio-one-checked{
-	background-image:url(/static/blog/img/ui/radio1c.png);
+	background-image:url(../img/ui/radio1c.png);
 }
 
 .radio-two{
-	background-image:url(/static/blog/img/ui/radio2.png);
+	background-image:url(../img/ui/radio2.png);
 	background-size:16px 18px;
 	background-repeat:no-repeat;
 	padding-left:30px;
@@ -1210,7 +1210,7 @@ table tr:hover td{
 }
 
 .radio-two-checked{
-	background-image:url(/static/blog/img/ui/radio2c.png);
+	background-image:url(../img/ui/radio2c.png);
 }
 
 /*	12. Charts */ 
@@ -1588,14 +1588,14 @@ table tr:hover td{
 	font-size:13px;
 	color:#343434;
 	text-transform:uppercase;
-	background-image:url(/static/blog/img/ui/plus.png);
+	background-image:url(../img/ui/plus.png);
 	background-repeat:no-repeat;
 	background-size:12px 12px;
 	background-position:15px 19px;
 }
 
 .toggle-1-active{
-	background-image:url(/static/blog/img/ui/minus.png);
+	background-image:url(../img/ui/minus.png);
 }
 
 .deploy-toggle-2{
@@ -1604,14 +1604,14 @@ table tr:hover td{
 	font-size:13px;
 	color:#343434;
 	text-transform:uppercase;
-	background-image:url(/static/blog/img/lists/plus_48.png);
+	background-image:url(../img/lists/plus_48.png);
 	background-repeat:no-repeat;
 	background-size:14px 14px;
 	background-position:15px 18px;
 }
 
 .toggle-2-active{
-	background-image:url(/static/blog/img/lists/delete_48.png);
+	background-image:url(../img/lists/delete_48.png);
 }
 
 .deploy-toggle-3{
@@ -1666,14 +1666,14 @@ table tr:hover td{
 	padding:15px;
 	padding-left:40px;
 	text-transform:uppercase;
-	background-image:url(/static/blog/img/ui/arrow-down.png);
+	background-image:url(../img/ui/arrow-down.png);
 	background-repeat:no-repeat;
 	background-size:8px 5px;
 	background-position:15px 23px;
 }
 
 .submenu-nav-deploy-active{
-	background-image:url(/static/blog/img/ui/arrow-up.png);
+	background-image:url(../img/ui/arrow-up.png);
 }
 
 .submenu-nav-items{
@@ -1764,7 +1764,7 @@ table tr:hover td{
 }
 
 .sliding-door-bottom a em{
-	background-image:url(/static/blog/img/ui/minus.png);
+	background-image:url(../img/ui/minus.png);
 	background-size:12px 12px;
 	background-repeat:no-repeat;
 	background-position:13px 13px;
@@ -1777,7 +1777,7 @@ table tr:hover td{
 
 
 .sliding-door-top a em{
-	background-image:url(/static/blog/img/ui/plus.png);
+	background-image:url(../img/ui/plus.png);
 	background-size:12px 12px;
 	background-repeat:no-repeat;
 	background-position:13px 13px;
@@ -2134,7 +2134,7 @@ table tr:hover td{
 }
 
 .profile-header {
-	background-image:url(/static/blog/img/pictures/5.jpg);
+	background-image:url(../img/pictures/5.jpg);
 	background-repeat:repeat;	
 }
 
@@ -2150,7 +2150,7 @@ table tr:hover td{
 }
 
 .profile-header-background{
-	background-image:url(/static/blog/img/pictures/5w.jpg);
+	background-image:url(../img/pictures/5w.jpg);
 	background-repeat:repeat;	
 	position:absolute;
 	left:0px;
@@ -3015,7 +3015,7 @@ table tr:hover td{
 /* Default demo styles */
 
 .snap-drawers {
-	/*background-image:url(/static/blog/img/misc/menu-bg.png);*/
+	/*background-image:url(../img/misc/menu-bg.png);*/
     background-size:100px 100px;
 }
 
@@ -3088,7 +3088,7 @@ table tr:hover td{
 }
 
 .login-logo{
-    background-image:url(/static/blog/img/logo.png);
+    background-image:url(../img/logo.png);
     width:150px;
     height:25px;
     background-size:150px 25px;
@@ -3159,7 +3159,7 @@ table tr:hover td{
 }
 
 .signup-logo{
-    background-image:url(/static/blog/img/logo.png);
+    background-image:url(../img/logo.png);
     width:150px;
     height:25px;
     background-size:150px 25px;
@@ -3912,7 +3912,7 @@ table tr:hover td{
 /*/////////////*/
 
 .error-page-wrapper{
-    background-image:url(/static/blog/img/pictures/3.jpg);
+    background-image:url(../img/pictures/3.jpg);
     background-position:center center;
     background-size:cover;
     position:absolute;
@@ -3988,7 +3988,7 @@ table tr:hover td{
 /*////////////*/
 
 .soon-page-wrapper{
-    background-image:url(/static/blog/img/pictures/3.jpg);
+    background-image:url(../img/pictures/3.jpg);
     background-position:center center;
     background-size:cover;
     position:absolute;

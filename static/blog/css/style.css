@@ -41,22 +41,22 @@ body{
 /*Backgrounds */
 
 .bg1{
-    background-image:url(/static/blog/img/pictures/1.jpg);   
+    background-image:url(../img/pictures/1.jpg);   
     background-position:center center;
 }
 
 .bg2{
-    background-image:url(/static/blog/img/pictures/2.jpg);   
+    background-image:url(../img/pictures/2.jpg);   
     background-position:center center;
 }
 
 .bg3{
-    background-image:url(/static/blog/img/pictures/3.jpg);   
+    background-image:url(../img/pictures/3.jpg);   
     background-position:center center;
 }
 
 .bg4{
-    background-image:url(/static/blog/img/pictures/4.jpg);   
+    background-image:url(../img/pictures/4.jpg);   
     background-position:center center;
 }
 
@@ -207,7 +207,7 @@ body{
 .footer-menu{
     position:fixed;
     z-index:9999999;
-    background-image:url(/static/blog/img/misc/menu-bg.png);
+    background-image:url(../img/misc/menu-bg.png);
     background-size:100px 100px;
     width:100%;
     height:60px;
@@ -295,7 +295,7 @@ body{
 }
 
 .main-logo{
-    background-image:url(/static/blog/img/logo-dark.png);
+    background-image:url(../img/logo-dark.png);
     width:110px;
     height:18px;
     background-size:110px 18px;
@@ -717,14 +717,14 @@ body{
 /*Reminder Box*/
 
 .reminder-check-square{
-    background-image:url(/static/blog/img/ui/checkbox1.png);
+    background-image:url(../img/ui/checkbox1.png);
     background-repeat:no-repeat;
     background-size:16px 18px;
     background-position:10px 43px;
 }
 
 .reminder-check-round{
-    background-image:url(/static/blog/img/ui/radio2.png);
+    background-image:url(../img/ui/radio2.png);
     background-repeat:no-repeat;
     background-size:16px 18px;
     background-position:10px 43px;
@@ -735,11 +735,11 @@ body{
 }
 
 .reminder-check-square-selected{
-    background-image:url(/static/blog/img/ui/checkbox1c.png);
+    background-image:url(../img/ui/checkbox1c.png);
 }
 
 .reminder-check-round-selected{
-    background-image:url(/static/blog/img/ui/radio2c.png);
+    background-image:url(../img/ui/radio2c.png);
 }
 
 .reminder-check-square-selected em{opacity:0.5; transition:all 250ms ease;}
@@ -775,7 +775,7 @@ body{
 .checklist-square{
     font-size:14px;
     font-weight:500;
-    background-image:url(/static/blog/img/ui/checkbox1.png);
+    background-image:url(../img/ui/checkbox1.png);
     background-size:16px 18px;
     background-position:0px 32px;
     background-repeat:no-repeat;
@@ -798,7 +798,7 @@ body{
 }
 
 .checklist-square-selected{
-    background-image:url(/static/blog/img/ui/checkbox1c.png);
+    background-image:url(../img/ui/checkbox1c.png);
     text-decoration:line-through;
     opacity:0.5;
     transition:all 250ms ease;
@@ -807,7 +807,7 @@ body{
 .checklist-round{
     font-size:14px;
     font-weight:500;
-    background-image:url(/static/blog/img/ui/radio1.png);
+    background-image:url(../img/ui/radio1.png);
     background-size:16px 18px;
     background-position:0px 32px;
     background-repeat:no-repeat;
@@ -830,7 +830,7 @@ body{
 }
 
 .checklist-round-selected{
-    background-image:url(/static/blog/img/ui/radio1c.png);
+    background-image:url(../img/ui/radio1c.png);
     text-decoration:line-through;
     opacity:0.5;
     transition:all 250ms ease;
