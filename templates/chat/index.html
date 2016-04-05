@@ -57,28 +57,28 @@
                             </div>
                         </div>
 
-                        <form action="php/contact.php" method="post" class="contactForm" id="contactForm">
+                        <form method="post" class="contactForm" id="contactForm">
                             <fieldset>
-                                <div class="formValidationError" id="contactNameFieldError">
+<!--                                 <div class="formValidationError" id="contactNameFieldError">
                                     <div class="static-notification-red tap-dismiss-notification">
                                         <p class="center-text uppercase">Name is required!</p>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="formValidationError" id="contactMessageTextareaError">
                                     <div class="static-notification-red tap-dismiss-notification">
                                         <p class="center-text uppercase">Message field is empty!</p>
                                     </div>
                                 </div>   
-                                <div class="formFieldWrap">
+<!--                                 <div class="formFieldWrap">
                                     <label class="field-title contactNameField" for="contactNameField">Name:<span>(required)</span></label>
                                     <input type="text" name="contactNameField" value="" class="contactField requiredField" id="contactNameField"/>
-                                </div>
+                                </div> -->
                                 <div class="formTextareaWrap">
                                     <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Message: <span>(required)</span></label>
                                     <textarea name="contactMessageTextarea" class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
                                 </div>
                                 <div class="formSubmitButtonErrorsWrap">
-                                    <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="SUBMIT" data-formId="contactForm"/>
+                                    <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="SEND" />
                                 </div>
                             </fieldset>
                         </form>       
@@ -88,4 +88,67 @@
             <div class="decoration"></div> 
         </div>
         {% include 'layout/footer.html' %}
+<script type="text/javascript" src="/static/blog/js/jquery.js"></script>        
+<script>
+console.log(1111111111111);
+
+$(document).ready(function() {
+    if (!window.console) window.console = {};
+    if (!window.console.log) window.console.log = function() {};
+
+    $("#contactSubmitButton").click(function() {
+        newMessage($(this));
+        return false;
+    });
+    $("#contactSubmitButton").click(function(e) {
+        if (e.keyCode == 13) {
+            newMessage($(this));
+            return false;
+        }
+    });
+    $("#contactSubmitButton").select();
+    updater.start();
+});
+
+function newMessage(form) {
+    var message = form.formToDict();
+    updater.socket.send(JSON.stringify(message));
+    form.find("input[type=text]").val("").select();
+}
+
+jQuery.fn.formToDict = function() {
+    var fields = this.serializeArray();
+    var json = {}
+    for (var i = 0; i < fields.length; i++) {
+        json[fields[i].name] = fields[i].value;
+    }
+    if (json.next) delete json.next;
+    return json;
+};
+
+var updater = {
+    socket: null,
+
+    start: function() {
+        var url = "ws://" + '10.11.7.41:8888' + "/chatsocket";
+        updater.socket = new WebSocket(url);
+        updater.socket.onmessage = function(event) {
+            updater.showMessage(JSON.parse(event.data));
+        }
+    },
+
+    showMessage: function(message) {
+        var existing = $("#m" + message.id);
+        if (existing.length > 0) return;
+        var node = $(message.html);
+        node.hide();
+        $("#inbox").append(node);
+        node.slideDown();
+    }
+};
+
+
+
+</script>
+        
 {% endblock %}

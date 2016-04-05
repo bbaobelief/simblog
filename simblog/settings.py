@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'activelink',
+    'ws4redis',
     'blog',
 )
 
@@ -127,3 +128,25 @@ CACHES = {
         }
     }
 }
+
+# WebSocket Url
+WEBSOCKET_URL = '/wschat/'
+
+# WebSocket Redis
+WS4REDIS_CONNECTION = {
+    'host': '10.11.7.41',
+    'port': 6379,
+    'db': 10,
+}
+
+WS4REDIS_EXPIRE = 3600
+WS4REDIS_PREFIX = 'ws'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.static',
+    'django.core.context_processors.request',
+    'ws4redis.context_processors.default',
+)
+
+WSGI_APPLICATION = 'ws4redis.django_runserver.application'
