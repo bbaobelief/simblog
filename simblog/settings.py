@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'activelink',
+    'ws4redis',
     'blog',
 )
 
@@ -66,6 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.core.context_processors.static',
+                'ws4redis.context_processors.default',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -127,3 +130,18 @@ CACHES = {
         }
     }
 }
+
+# WebSocket Url
+WEBSOCKET_URL = '/ws/'
+
+# WebSocket Redis
+WS4REDIS_CONNECTION = {
+    'host': '127.0.0.1',
+    'port': 6379,
+    'db': 10,
+}
+
+WS4REDIS_EXPIRE = 3600
+WS4REDIS_PREFIX = 'ws'
+WSGI_APPLICATION = 'ws4redis.django_runserver.application'
+WS4REDIS_HEARTBEAT = '--heartbeat--'

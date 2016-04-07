@@ -4,82 +4,25 @@
         {% load staticfiles %}
         <div class="content">
             <div class="header-clear"></div>
-            <a class="back-button" href="/"><i class="fa fa-chevron-left"></i> Back</a>
+            <div id="result_message" class="one-half-responsive"></div>
             
-             <div class="container no-bottom">
-                <h3>Chat</h3>
-                <p>聊天室，使用websocket编写。</p>
-            </div>
-            <div class="decoration"></div>
-            <div class="one-half-responsive">
-              <em class="speach-left-title">John Doe says:</em>
-              <p class="speach-left">This is just an awesome bubble! It's quite cute isn't it?</p>
-
-              <div class="clear"></div>
-
-              <em class="speach-right-title">Jane Doe replied:</em>
-              <p class="speach-right blue-bubble">Yeap! It's awesome isn't it and it's not that hard to use! And they act like bubbles, only expanding to 75% of width!</p>
-
-              <div class="clear"></div>  
-
-              <em class="speach-left-title">John Doe says:</em>
-              <p class="speach-left">Awesome stuff!</p> 
-
-              <div class="clear"></div>
-
-              <em class="speach-right-title">Jane Doe replied:</em>
-              <p class="speach-right blue-bubble">Yeap! It's awesome isn't it and it's not that hard to use! And they act like bubbles, only expanding to 75% of width!</p>
-            </div> 
-
-<!--             <div class="decoration hide-if-responsive"></div>
-            <div class="one-half-responsive last-column">
-                <em class="speach-left-title">John Doe says:</em>
-                <p class="speach-left">This is just an awesome bubble! It's quite cute isn't it?</p>
-
-                <div class="clear"></div>
-
-                <em class="speach-right-title">Jane Doe replied:</em>
-                <p class="speach-right green-bubble">Yeap! It's awesome isn't it and it's not that hard to use! And they act like bubbles, only expanding to 75% of width!</p>
-
-                <div class="clear"></div>  
-            </div>  -->
             <div class="decoration hide-if-responsive"></div>
             <div class="one-half-responsive last-column">
-                <h4>Send us an email!</h4>
-                <p>Use the form to send us a message, it's AJAX and PHP powered and it's easy to use!</p>
                 <div class="container no-bottom">
                     <div class="contact-form no-bottom"> 
-                        <div class="formSuccessMessageWrap" id="formSuccessMessageWrap">
-                            <div class="big-notification green-notification">
-                                <h3 class="uppercase">Message Sent </h3>
-                                <a href="#" class="close-big-notification">x</a>
-                                <p>Your message has been successfuly sent. Please allow up to 48 hours for a reply! Thank you!</p>
-                            </div>
-                        </div>
-
-                        <form action="php/contact.php" method="post" class="contactForm" id="contactForm">
+                        <form method="post" class="contactForm" id="contactForm">
                             <fieldset>
-                                <div class="formValidationError" id="contactNameFieldError">
-                                    <div class="static-notification-red tap-dismiss-notification">
-                                        <p class="center-text uppercase">Name is required!</p>
-                                    </div>
-                                </div>
-                                <div class="formValidationError" id="contactMessageTextareaError">
-                                    <div class="static-notification-red tap-dismiss-notification">
-                                        <p class="center-text uppercase">Message field is empty!</p>
-                                    </div>
-                                </div>   
-                                <div class="formFieldWrap">
-                                    <label class="field-title contactNameField" for="contactNameField">Name:<span>(required)</span></label>
-                                    <input type="text" name="contactNameField" value="" class="contactField requiredField" id="contactNameField"/>
-                                </div>
-                                <div class="formTextareaWrap">
-                                    <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Message: <span>(required)</span></label>
-                                    <textarea name="contactMessageTextarea" class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
-                                </div>
-                                <div class="formSubmitButtonErrorsWrap">
-                                    <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="SUBMIT" data-formId="contactForm"/>
-                                </div>
+                              <div class="formFieldWrap">
+                                  <label class="field-title contactNameField" for="contactNameField">Name:<span>(required)</span></label>
+                                  <input type="text" name="contactNameField" value="Anonymous" class="contactField requiredField" id="text_username"/>
+                              </div>
+                              <div class="formTextareaWrap">
+                                  <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Message: <span>(required)</span></label>
+                                  <textarea name="contactMessageTextarea" class="contactTextarea requiredField" id="text_message"></textarea>
+                              </div>
+                              <div class="formSubmitButtonErrorsWrap">
+                                  <input type="button" class="buttonWrap button button-green contactSubmitButton" id="send_message" value="SEND" />
+                              </div>
                             </fieldset>
                         </form>       
                     </div>
@@ -88,4 +31,68 @@
             <div class="decoration"></div> 
         </div>
         {% include 'layout/footer.html' %}
+<script src="{{ STATIC_URL }}js/ws4redis.js" type="text/javascript"></script>    
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  var classObj=
+    {
+      ToUnicode:function(str) 
+      {
+        return escape(str).replace(/%/g,"\\").toLowerCase();
+      },
+      UnUnicode:function(str)
+      {
+        return unescape(str.replace(/\\/g, "%"));
+      }
+    }
+  // 获取用户输入转换json对象为字符串发送
+  function getResult()
+  {
+    username = classObj.ToUnicode($('#text_username').val()); 
+    message = classObj.ToUnicode($('#text_message').val()); 
+    var obj= {'username':username,'message':message};
+		return JSON.stringify(obj);
+  }
+    
+	var ws4redis = WS4Redis({
+		uri: '{{ WEBSOCKET_URI }}public?subscribe-broadcast&publish-broadcast&echo',
+		receive_message: receiveMessage,
+		heartbeat_msg: {{ WS4REDIS_HEARTBEAT }}
+	});
+  
+	// send message though the Websocket to the server
+	$("#text_message").keydown(function(event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+      ws4redis.send_message(getResult());
+		}
+	});
+  //清空输入框
+	$("#text_message").click(function() {
+    $('#text_message').val("");
+	});  
+  
+	$('#send_message').click(function() {
+		ws4redis.send_message(getResult());
+	});
+
+	// receive a message though the Websocket from the server
+	function receiveMessage(msg) {
+    var result_message = $('#result_message');
+    var resmsg = JSON.parse(msg);
+    
+    //如果输入内容和接收到的内容相等，则认为是自己发送的数据
+		if ( msg === getResult() ) {
+      username = classObj.UnUnicode(resmsg.username); 
+      message = classObj.UnUnicode(resmsg.message); 
+			result_message.append('<em class="speach-right-title">'+username+':</em>'+'<p class="speach-right blue-bubble">'+message+'</p>'+'<div class="clear"></div>');
+    } 
+    else {
+      username = classObj.UnUnicode(resmsg.username); 
+      message = classObj.UnUnicode(resmsg.message); 
+      result_message.append('<em class="speach-left-title">'+username+':</em>'+'<p class="speach-left">'+message+'</p>'+'<div class="clear"></div>');
+    }
+	}
+});
+</script>
 {% endblock %}

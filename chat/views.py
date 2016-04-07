@@ -1,11 +1,16 @@
+# -*- coding: utf-8 -*-
+
 from django.views.generic import TemplateView
+from ws4redis.redis_store import RedisMessage
+from ws4redis.publisher import RedisPublisher
 
 class ChatView(TemplateView):
     template_name = 'chat/index.html'
+    facility = 'public'
+    audience = {'broadcast': True}
+    message = RedisMessage('{"username": "admin", "message": "Hello everybody"}')
 
-    def get_context_data(self, **kwargs):
-        context = super(ChatView, self).get_context_data(**kwargs)
-        context['host'] = 'localhost'
-        # if not self.request.user.is_staff:
-        #     context['res_list'] = context['res_list'].filter(user=self.request.user)
-        return context
+    def get(self, request, *args, **kwargs):
+        redis_publisher = RedisPublisher(facility=self.facility, **self.audience)
+        redis_publisher.publish_message(self.message)
+        return super(ChatView, self).get(request, *args, **kwargs)
