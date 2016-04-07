@@ -14,3 +14,4 @@ class ChatView(TemplateView):
         redis_publisher = RedisPublisher(facility=self.facility, **self.audience)
         redis_publisher.publish_message(self.message)
         return super(ChatView, self).get(request, *args, **kwargs)
+        
