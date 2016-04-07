@@ -4,3 +4,4 @@ django-activelink
 Pillow
 gunicorn
 pytz
+django-websocket-redis==0.4.6
