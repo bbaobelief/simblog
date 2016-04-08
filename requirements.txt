@@ -1,8 +1,0 @@
-Django==1.8.11
-MySQL-python==1.2.5
-django-activelink==0.4
-Pillow==3.1.0
-gunicorn==19.4.5
-pytz==2016.2
-django-websocket-redis==0.4.6
-gevent==1.1.0
