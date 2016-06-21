@@ -1,6 +1,7 @@
 {% extends "layout/base.html" %}
 {% block title %} 博客 {% endblock %}
 {% block content %}
+{% load custom_markdown %}
         <div class="header-clear"></div>
         <div class="content">
           <div class="blog-posts">
@@ -35,7 +36,7 @@
             <div class="blog-post" style="margin-bottom:24px;">
               <h3 class="blog-post-title"><a href="{% url 'blog_detail' blog.id %}" style="color:inherit">{{ blog.title }}</a></h3>
               <p class="blog-post-text">
-                  {{ blog.content|safe|truncatechars_html:160 }}
+                  {{ blog.content|safe|truncatechars_html:160|custom_markdown }}
               </p>
               <p class="blog-post-date" style="margin-top: 4px;">
                   <i class="fa fa-calendar"></i>{{ blog.publish_time|date:"d/m/Y" }}

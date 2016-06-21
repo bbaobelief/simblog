@@ -2,6 +2,7 @@
 {% block title %} {{ article.title }} {% endblock %}
 {% block content %}
         {% load staticfiles %}
+        {% load custom_markdown %}
         <div class="header-clear"></div>
         <div class="content">
           <div class="blog-posts">
@@ -22,7 +23,7 @@
                 {%endif%} 
               </p>
               <div class="blog-post-text">
-                {{ article.content|safe }}                           
+                {{ article.content|custom_markdown }}                           
                 <div class="clear"></div>
                 <p class="blog-post-date hide-if-mobile">
                     <i class="fa fa-tag" style="margin-right:2px;margin-top: 20px;">:</i>

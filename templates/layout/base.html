@@ -27,13 +27,13 @@
     <link href="{% static 'blog/css/swipebox.css' %}" rel="stylesheet" type="text/css" /> 
     <link href="{% static 'blog/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" /> 
     <link href="{% static 'blog/css/animate.min.css' %}" rel="stylesheet" type="text/css" /> 
-    <link href="{% static 'prettify/css/hemisu-light.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'highlight/styles/monokai.css' %}" rel="stylesheet" type="text/css" />
     
     <script type="text/javascript" src="{% static 'blog/js/jquery.js' %}"></script> 
     <script type="text/javascript" src="{% static 'blog/js/jqueryui.js' %}"></script> 
     <script type="text/javascript" src="{% static 'blog/js/framework.plugins.js' %}"></script> 
     <script type="text/javascript" src="{% static 'blog/js/custom.js' %}"></script>
-    <script type="text/javascript" src="{% static 'prettify/js/prettify.js' %}"></script>
+    <script type="text/javascript" src="{% static 'highlight/highlight.pack.js' %}"></script>
     
     <script>
     var _hmt = _hmt || [];
@@ -44,9 +44,18 @@
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
-
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <style type="text/css">
+    .hljs {
+        color: #000;
+        background: rgba(245, 245, 245, 0.25);
+        border: 1px solid #E8E8E8;
+        font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+    }
+    </style>
   </head> 
-  <body onload="prettyPrint()"> 
+  <body> 
     <div id="preloader"> 
     <div id="status"> 
         <p class="center-text"> 加载中... <em>加载速度取决于你的网速快慢!</em> </p> 
