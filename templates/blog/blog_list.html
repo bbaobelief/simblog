@@ -36,7 +36,7 @@
             <div class="blog-post" style="margin-bottom:24px;">
               <h3 class="blog-post-title"><a href="{% url 'blog_detail' blog.id %}" style="color:inherit">{{ blog.title }}</a></h3>
               <p class="blog-post-text">
-                  {{ blog.content|safe|truncatechars_html:160|custom_markdown }}
+                  {{ blog.content|custom_markdown|truncatechars_html:160 }}
               </p>
               <p class="blog-post-date" style="margin-top: 4px;">
                   <i class="fa fa-calendar"></i>{{ blog.publish_time|date:"d/m/Y" }}
