@@ -6,3 +6,4 @@ gunicorn==19.4.5
 pytz==2016.2
 django-websocket-redis==0.4.6
 gevent==1.1.0
+Markdown==2.6.6
