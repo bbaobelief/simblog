@@ -2,6 +2,7 @@
 {% block title %} 博客首页 {% endblock %}
 <!-- content starts-->
 {% block content %}
+{% load custom_markdown %}
             {% for blog in article %}
             <div class="post">
               <h2 class="post-title"><a href="{% url 'oldblog_detail' blog.id %}">{{ blog.title }}</a></h2>
@@ -10,7 +11,7 @@
                 <a href="{% url 'oldblog_category' blog.category.id %}" style="color: #999;"><i class="fa fa-book" style="margin: 0 8px 0 8px;"></i>{{ blog.category|capfirst }}</a>
                 <i class="fa fa-eye" style="margin: 0 8px 0 8px;"></i>{{ blog.counts }}℃
               </div>
-              <div class="post-content"><div class="p_part"><a href="{% url 'oldblog_detail' blog.id %}">{{ blog.content|safe|truncatechars_html:160 }}</a></div></div>
+              <div class="post-content"><div class="p_part"><a href="{% url 'oldblog_detail' blog.id %}">{{ blog.content|safe|truncatechars_html:160|custom_markdown }}</a></div></div>
             </div>
             {% empty %}
               <div class="post-meta">抱歉，此分类还没有文章。</div>

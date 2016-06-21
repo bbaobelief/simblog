@@ -19,7 +19,7 @@
     <link href="{% static 'oldblog/css/grids-responsive-min.css' %}" type="text/css" rel="stylesheet"/>
     <link href="{% static 'oldblog/css/font-awesome.min.css' %}" type="text/css" rel="stylesheet"/>
     <link href="{% static 'oldblog/css/style.min.css' %}" type="text/css" rel="stylesheet"/>
-    <link href="{% static 'prettify/css/hemisu-light.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'highlight/styles/solarized-dark.css' %}" rel="stylesheet" type="text/css" />
     <!-- Top -->
     <link href="{% static 'oldblog/css/top.css' %}" type="text/css" rel="stylesheet"/>
 
@@ -27,14 +27,12 @@
     .post .post-content ol, .post .post-content ul {
       padding: 0px;
     }
-    pre {
-      background: #FFF;
-      font-size: inherit;
-      line-height: 0;
-    }
-    .post .post-content pre code {
-      border: 0px;
-    }
+    .codehilite code, 
+    .codehilite pre {
+      font-size: 14px;
+      background: #002b36;
+      font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco, Consolas, monospace;
+    }     
     .post-meta, li {
       font-family: Lato,"PingFang SC","Microsoft YaHei",sans-serif;
     }
@@ -42,7 +40,7 @@
     <!-- inline styles related to this page -->
     {% block page_styles %}{% endblock %}
   </head>
-  <body onload="prettyPrint()">
+  <body>
     <div class="body_container">
       <div id="header">
         <div class="site-name">
@@ -87,11 +85,12 @@
     </div>
     
     <script type="text/javascript" src="{% static 'oldblog/js/jquery.min.js' %}"></script> 
-    <script type="text/javascript" src="{% static 'prettify/js/prettify.js' %}"></script>
+    <script type="text/javascript" src="{% static 'highlight/highlight.pack.js' %}"></script>
 
     <!-- Top -->
     <script type="text/javascript" src="{% static 'oldblog/js/top.js' %}"></script>
-
+    
+    <script>hljs.initHighlightingOnLoad();</script>
     <!-- page js plugins -->
     {% block page_plugin_scripts %}{% endblock %}
     

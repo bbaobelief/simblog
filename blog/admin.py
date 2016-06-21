@@ -16,28 +16,6 @@ class ArticleAdmin(admin.ModelAdmin):
     filter_horizontal = ('tag',)
     list_editable = ('is_show', 'category')
 
-    class Media:
-        css = {
-            'all': (
-                '/static/simditor/css/simditor.css',
-                '/static/simditor/css/simditor-html.css',
-                '/static/simditor/css/simditor-markdown.css',
-            ),
-        }
-        js = (
-            '/static/simditor/js/jquery.min.js',
-            '/static/simditor/js/module.js',
-            '/static/simditor/js/uploader.js',
-            '/static/simditor/js/hotkeys.js',
-            '/static/simditor/js/simditor.js',
-            '/static/simditor/js/beautify-html.js',
-            '/static/simditor/js/simditor-html.js',
-            '/static/simditor/js/marked.js',
-            '/static/simditor/js/to-markdown.js',
-            '/static/simditor/js/simditor-markdown.js',
-            '/static/simditor/config.js',
-        )
-
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'order')
