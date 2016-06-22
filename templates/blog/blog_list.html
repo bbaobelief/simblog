@@ -20,7 +20,7 @@
               {% for blog in tops %}
               <div class="tab-content tab-content-{{ forloop.counter }}" style="background-color: rgba(238, 238, 238, 0);{% if forloop.first %}display: block;{% endif %}">
                 <!-- <img src="/static/blog/img/pictures/1s.jpg" class="float-left" width="70" alt="img"> -->
-                  {{ blog.content|safe|truncatechars_html:130 }}
+                  {{ blog.content|safe|truncatechars_html:130|custom_markdown }}
               <p class="blog-post-date" style="margin-top: 4px;">
                   <i class="fa fa-calendar"></i>{{ blog.publish_time|date:"d/m/Y" }}
                   <a href="{% url 'blog_category' blog.category.pk %}" style="margin-left: 10px;color:inherit" class="hide-if-mobile"><i class="fa fa-book"></i>{{ blog.category|capfirst }}</a>
@@ -36,7 +36,7 @@
             <div class="blog-post" style="margin-bottom:24px;">
               <h3 class="blog-post-title"><a href="{% url 'blog_detail' blog.id %}" style="color:inherit">{{ blog.title }}</a></h3>
               <p class="blog-post-text">
-                  {{ blog.content|custom_markdown|truncatechars_html:160 }}
+                  {{ blog.content|safe|truncatechars_html:160|custom_markdown }}
               </p>
               <p class="blog-post-date" style="margin-top: 4px;">
                   <i class="fa fa-calendar"></i>{{ blog.publish_time|date:"d/m/Y" }}
