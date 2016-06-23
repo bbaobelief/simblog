@@ -32,10 +32,10 @@ class TagAdmin(admin.ModelAdmin):
 
 
 class LinkAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'email', 'website')
+    list_display = ('id', 'name', 'is_show', 'website')
     search_fields = ('name',)
     ordering = ('name',)
-    list_editable = ('name', 'email', 'website')
+    list_editable = ('name', 'is_show', 'website')
 
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Article, ArticleAdmin)
