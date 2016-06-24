@@ -76,7 +76,7 @@
                   <div class="decoration"></div>
                   <ul class="tag-clouds">
                     {% for tag,count in tags %}
-                    <a href="/blog/tag/{{tag.id}}/" title="{{ tag }} {{ count }}"> {{ tag|capfirst }} </a>
+                    <a href="{% url 'blog_tag' tag.id %}" title="{{ tag }} {{ count }}"> {{ tag|capfirst }} </a>
                     {% empty %}
                     <li>No Tag Yet.</li>
                     {% endfor %}
