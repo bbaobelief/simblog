@@ -28,7 +28,7 @@
                 <p class="blog-post-date hide-if-mobile">
                     <i class="fa fa-tag" style="margin-right:2px;margin-top: 20px;">:</i>
                     {% for tag in article.tag.all %}
-                    <a href="{% url 'blog_detail' tag.id %}">{{ tag.name }}, </a>
+                    <a href="{% url 'blog_tag' tag.id %}">{{ tag.name }}, </a>
                     {% empty %}
                     <a href="http://{{ request.get_host }}{{ request.path }}">Not tag.</a>
                     {% endfor %}
